@@ -5,17 +5,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrRequest;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 class AuthRegController extends Controller{
     public function registerView(){
               return view("main.prof");
     }
    
  public function register(RegistrRequest $r){
-        $data = [
-            'email'=>$r->input('email'),
-            'password' =>$r->input('password'),
-           ];
-      $user = User::create($data);
-      Auth::guard('newuser')->login($user);
+    $data = [
+              'email'=>$r->input('email'),
+              'nameS'=>$r->input('nameS'),
+              'phone'=>$r->input('phone'),
+              'postcode'=>$r->input('postcode'),
+              'country'=>$r->input('country'),
+              "city"=>$r->input('city'),
+              'password' =>$r->input('password'),
+        ];
+        $user = User::create($data);
+        Auth::guard('newuser')->login($user);
     }
 }

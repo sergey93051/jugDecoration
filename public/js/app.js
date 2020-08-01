@@ -39616,8 +39616,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var jquery_ui_ui_widgets_datepicker_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery-ui/ui/widgets/datepicker.js */ "./node_modules/jquery-ui/ui/widgets/datepicker.js");
 /* harmony import */ var jquery_ui_ui_widgets_datepicker_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_datepicker_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.js */ "./resources/js/index.js");
-/* harmony import */ var _ajax_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ajax.js */ "./resources/js/ajax.js");
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.js */ "./resources/js/index.js");
+/* harmony import */ var _ajax_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ajax.js */ "./resources/js/ajax.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -39626,9 +39626,9 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 
  //mainpage page1   (/)
 
-Object(_index_js__WEBPACK_IMPORTED_MODULE_3__["index"])();
-Object(_ajax_js__WEBPACK_IMPORTED_MODULE_4__["sentAjax"])();
-Object(_index_js__WEBPACK_IMPORTED_MODULE_3__["product"])();
+Object(_index_js__WEBPACK_IMPORTED_MODULE_2__["index"])();
+Object(_ajax_js__WEBPACK_IMPORTED_MODULE_3__["sentAjax"])();
+Object(_index_js__WEBPACK_IMPORTED_MODULE_2__["product"])();
 
 /***/ }),
 
