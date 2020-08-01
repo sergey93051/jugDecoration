@@ -1,4 +1,4 @@
-<div id="main__page__product">
+{{-- <div id="main__page__product">
   <div class="row">
     @foreach ($prodimg as $item)
     <div class="card mb-5" style="width: 18rem;">
@@ -21,4 +21,4 @@
     </div>
     @endforeach
   </div>
-</div>
+</div> --}}

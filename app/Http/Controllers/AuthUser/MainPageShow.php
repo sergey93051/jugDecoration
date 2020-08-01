@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Session;
 class MainPageShow extends Controller{
     
     public function mainshow(){
-        $Productimgs = Productimgs::select(["*"])->get();
-        return view('main.page1', ['prodimg' => $Productimgs]);
+        // $Productimgs = Productimgs::select(["*"])->get();
+        return view('main.page1');
     }
     public function local_lang($locale){
       Session::put("locale",$locale);
