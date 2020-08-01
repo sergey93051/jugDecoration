@@ -39479,6 +39479,130 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/ajax.js":
+/*!******************************!*\
+  !*** ./resources/js/ajax.js ***!
+  \******************************/
+/*! exports provided: sentAjax */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentAjax", function() { return sentAjax; });
+function sentAjax() {
+  //Auth
+  $("#but__reg").on("click", function () {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: "/register",
+      type: "POST",
+      data: {
+        email: $("#exampleInput__Email1").val(),
+        nameS: $("#exampleInput__nameSname").val(),
+        phone: $("#exampleInput__phone").val(),
+        postcode: $("#exampleInput__postcode").val(),
+        country: $("#exampleInput__country").val(),
+        city: $("#exampleInput__city").val(),
+        password: $("#exampleInput__Password1").val()
+      },
+      //number rating
+      error: function error(data) {
+        if (data.status === 422) {
+          $('#errormessange>div>ul').html('');
+          var showError = '';
+          var errors = $.parseJSON(data.responseText);
+          $.each(errors['errors'], function (key, value) {
+            showError = $("<li>" + value + "</li>");
+            $('#errormessange>div>ul').append(showError);
+          });
+          $('#errormessange').css({
+            display: "block"
+          });
+        }
+      },
+      success: function success() {
+        $(".Regform__row").css({
+          display: 'none'
+        });
+        $(".logform__row").css({
+          display: 'block'
+        });
+        $('#success__reg').css({
+          display: 'block'
+        });
+        $('#success__reg').html($('<div class="alert alert-success" role="alert">' + 'success' + '</div>'));
+      }
+    });
+  }); //  end
+
+  $("#log__but").on("click", function () {
+    var email = $("#logexampleInput__Email1").val();
+    var pass = $("#logexampleInput__Password1").val();
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: "profile",
+      type: "POST",
+      data: {
+        email: email,
+        password: pass
+      },
+      //number rating
+      error: function error(data) {
+        if (data.status === 422) {
+          $('#logerrormessange>div>ul').html('');
+          var showError = '';
+          var errors = $.parseJSON(data.responseText);
+          $.each(errors['errors'], function (key, value) {
+            showError = $("<li>" + value + "</li>");
+            $('#logerrormessange>div>ul').append(showError);
+          });
+          $('#logerrormessange').css({
+            display: "block"
+          });
+        }
+      },
+      success: function success() {
+        window.location.reload();
+      }
+    });
+  }); //endAuth
+  //ProductInfo
+
+  $(".but__prodinfo").on("click", function () {
+    var id = $(this).attr("id");
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: "productinfo/" + id,
+      type: "GET",
+      data: {
+        id: id
+      },
+      error: function error(jqXHR, textStatus, errorTHrown) {
+        alert("error:please check your network");
+      },
+      success: function success() {
+        window.location.href = "productinfo/" + id;
+      }
+    });
+  });
+}
+
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -39492,16 +39616,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var jquery_ui_ui_widgets_datepicker_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery-ui/ui/widgets/datepicker.js */ "./node_modules/jquery-ui/ui/widgets/datepicker.js");
 /* harmony import */ var jquery_ui_ui_widgets_datepicker_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_datepicker_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.js */ "./resources/js/index.js");
+/* harmony import */ var _ajax_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ajax.js */ "./resources/js/ajax.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
- //import {index,product} from './index.js';
-// import {sentAjax} from './ajax.js';
-// //mainpage page1   (/)
-// index();
-// sentAjax();
-// product();
+
+
+ //mainpage page1   (/)
+
+Object(_index_js__WEBPACK_IMPORTED_MODULE_3__["index"])();
+Object(_ajax_js__WEBPACK_IMPORTED_MODULE_4__["sentAjax"])();
+Object(_index_js__WEBPACK_IMPORTED_MODULE_3__["product"])();
 
 /***/ }),
 
@@ -39547,6 +39674,93 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/index.js":
+/*!*******************************!*\
+  !*** ./resources/js/index.js ***!
+  \*******************************/
+/*! exports provided: index, product */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "index", function() { return index; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "product", function() { return product; });
+function index() {
+  var main_reg = $(".Regform__row");
+  var main_log = $(".logform__row");
+  var showdown = $(".showdown"); //display:block;
+
+  $(".material-icons").click(function () {
+    if (main_reg.css('display') === 'block') {
+      main_reg.css({
+        display: 'none'
+      });
+    } else if (main_log.css('display') === 'block') {
+      main_log.css({
+        display: 'none'
+      });
+    }
+
+    if (showdown.css('display') === 'block') {
+      showdown.css({
+        display: 'none'
+      });
+    }
+  });
+  $(".singbut").click(function () {
+    main_reg.css({
+      display: "block"
+    });
+
+    if (main_log.css('display') === 'block') {
+      main_log.css({
+        display: 'none'
+      });
+    }
+
+    if (showdown.css('display') === 'none') {
+      showdown.css({
+        display: 'block'
+      });
+    }
+  });
+  $(".logbut").click(function () {
+    main_log.css({
+      display: "block"
+    });
+
+    if (main_reg.css('display') === 'block') {
+      main_reg.css({
+        display: 'none'
+      });
+    }
+
+    if (showdown.css('display') === 'none') {
+      showdown.css({
+        display: 'block'
+      });
+    }
+  }); // sing up and log in
+}
+
+function product() {
+  $(".prod__card").hover(function () {
+    $(this).css({
+      border: "0.5px solid #808080"
+    });
+  }, function () {
+    $(this).css({
+      border: "0.5px solid white"
+    });
+  }); //   $("#main__page__product>div>div").click(function (){
+  //        alert($(this).attr("id"));
+  //   })  
+}
+
+
 
 /***/ }),
 
