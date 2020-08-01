@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrRequest;
 use App\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 class AuthRegController extends Controller{
     public function registerView(){
               return view("main.prof");

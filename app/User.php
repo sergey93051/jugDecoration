@@ -37,12 +37,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    // public function admins(){
-    //   return $this->belongsToMany('App\Admins',"roles","user_id", "admin_id");
-    // }
-    // public function Productimgs(){
-    //     return $this->hasMany("App\Productimgs","user_id","id");
-    // }
+     public function admins(){
+      return $this->belongsToMany('App\Admins',"roles","user_id", "admin_id");
+     }
+     public function Productimgs(){
+         return $this->hasMany("App\Productimgs","user_id","id");
+     }
 
     public function setPasswordAttribute($password){
         $this->attributes['password'] = bcrypt($password);

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-// use App\facades\Policies;
+
 use App\Http\Controllers\Controller;
+//  use App\facades\Policies;
 // use App\Productimgs;
 // use Illuminate\Support\Facades\Gate;
 //  use Illuminate\Support\Facades\Auth;
