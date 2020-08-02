@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Productimgs;
 
@@ -33,12 +33,12 @@ class AddProdController extends Controller{
 
          $create = $this->user->User()->Productimgs()->create([
              "img" => $name,
-              "title" => $r->input("title"),
-               "after" => $r->input("after"),
-            "text" => $r->input("text"),
+             "title" => $r->input("title"),
+             "after" => $r->input("after"),
+             "text" => $r->input("text"),
              "price" => $r->input("price")
          ]);
-            $this->user->User()->Productimgs()->save($create); 
+         $this->user->User()->Productimgs()->save($create); 
            
        return redirect()->back()->with('success', 'success add');  
     }

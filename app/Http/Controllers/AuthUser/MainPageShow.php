@@ -13,7 +13,7 @@ class MainPageShow extends Controller{
     
     public function mainshow(){
          $Productimgs = Productimgs::select(["*"])->get();
-        return view('main.page1',["prodimg"=>$Productimgs]);
+         return view('main.page1',["prodimg"=>$Productimgs]);
     }
     public function local_lang($locale){
       Session::put("locale",$locale);
