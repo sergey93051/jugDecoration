@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Productimgs;
+use Illuminate\Support\Facades\Storage;
+
 
 class AddProdController extends Controller{
 
@@ -26,9 +28,12 @@ class AddProdController extends Controller{
 
       public function addProd(Request $r){
         $name = '';
+        $a = "";
        if($r->hasFile('img')){
            $name = $r->file("img")->getClientOriginalName();
-         $r->file('img')->storeAs("productImg",$name,"public");
+           $r->file('img')->storeAs("productImg",$name,"public");
+           $n = $r->file('img');
+
         }  
 
          $create = $this->user->User()->Productimgs()->create([
@@ -39,8 +44,8 @@ class AddProdController extends Controller{
              "price" => $r->input("price")
          ]);
          $this->user->User()->Productimgs()->save($create); 
-           
-       return redirect()->back()->with('success', 'success add');  
+           dd($n);
+      //  return redirect()->back()->with('success', 'success add');  
     }
 
 

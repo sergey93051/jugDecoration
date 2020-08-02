@@ -8,11 +8,22 @@
 class CacheProdinfo{
 
   public function CacheProdinfo($id){
-       $dbProductimgs = Productimgs::select(["*"])->where("id","=",$id)->get();
-       Cache::put("cache{$id}",$dbProductimgs,172800);
+  
+  
+      if (Cache::has("cache{$id}")) {
+       return Cache::get("cache{$id}");
+      }
+      else{
+        return Cache::remember("cache{$id}", 172800, function () use($id) {
+          return Productimgs::select(["*"])->where("id","=",$id)->get();
+                
+          });
+      }
 
 
-       return $dbProductimgs;
+
+      
+      
      }
  
 }

@@ -13,7 +13,7 @@ class CacheProvider extends ServiceProvider
      */
     public function register() {
       $this->app->singleton("CacheDB","App\DBCache\CacheProdinfo");
-      
+      $this->app->singleton("CacheDBmain","App\DBCache\CacheMainProduct");
     }
 
     /**

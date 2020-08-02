@@ -4,8 +4,8 @@ namespace App\facades;
 
  use Illuminate\Support\Facades\Facade;
 
-class CacheDB extends Facade{
+class CacheDBmain extends Facade{
     protected static function getFacadeAccessor(){
-          return "CacheDB";
+          return "CacheDBmain";
       }
     }

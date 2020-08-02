@@ -13,15 +13,14 @@ class ProdinfoController extends Controller{
   
 
 public function sentProdinfo($id){
-   $DBProdinfo = "";
-   if (Cache::has("cache{$id}")) {
-      $DBProdinfo = Cache::get("cache{$id}");
-   }else{
-      $DBProdinfo = CacheDB::CacheProdinfo($id);
-   }
+  
+//   Cache::flush();
 
-      return view("main.pageProduct.prodinfo",["prodinfo" => $DBProdinfo]);
-       
+      $dBProdinfo = CacheDB::CacheProdinfo($id);
+   
+
+    return view("main.pageProduct.prodinfo",compact('dBProdinfo'));
+        
      }
 
 }

@@ -3,7 +3,7 @@
 @section('containerMain')
 @include('main.controlheader.mainheader')
 <div class="row__product">
-  @foreach ($prodinfo as $item)
+  @foreach ($dBProdinfo as $item)
   <div class="card mb-5" style="max-width: 850px;">
     <div class="row no-gutters">
       <div class="col-md-4">
