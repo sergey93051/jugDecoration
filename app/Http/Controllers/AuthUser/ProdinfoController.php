@@ -7,14 +7,14 @@ use App\Http\Controllers\Controller;
 // use Illuminate\Http\Request;
 // use App\Productimgs;
 // use Illuminate\Support\Facades\DB;
- use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Cache;
 
 class ProdinfoController extends Controller{
   
 
 public function sentProdinfo($id){
   
-//   Cache::flush();
+  //  Cache::flush();
 
       $dBProdinfo = CacheDB::CacheProdinfo($id);
    

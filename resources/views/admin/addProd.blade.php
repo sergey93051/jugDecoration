@@ -13,8 +13,14 @@
   <div class="admin__form">
       <form action="{{ Route('addProd') }}" method="Post" enctype="multipart/form-data">
           @csrf
-          <label for="img">img</label><br>
-          <input type="file" id="img" name="img" value="John"><br>
+          <label for="title">directory</label><br>
+          <input type="text" id="directory" name="directory"><br>
+          <label for="img">img1</label><br>
+          <input type="file" id="img" name="img" ><br>
+          <label for="img2">img2</label><br>
+          <input type="file" id="img2" name="img2" ><br>
+          <label for="img3">img3</label><br>
+          <input type="file" id="img3" name="img3" ><br>
           <label for="title">title</label><br>
           <input type="text" id="title" name="title"><br>
           <label for="after">after</label><br>

@@ -15,7 +15,10 @@ class CreateProductimgsTable extends Migration
     {
         Schema::create('productimgs', function (Blueprint $table) {
             $table->id();
+            $table->string("directory",190);
             $table->string("img",190);
+            $table->string("img_2",190)->nullable();
+            $table->string("img_3",190)->nullable();
             $table->string("title",80);
             $table->string("after",80);
             $table->text("text");

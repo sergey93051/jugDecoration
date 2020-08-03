@@ -13,11 +13,11 @@ class CacheProdinfo{
       if (Cache::has("cache{$id}")) {
        return Cache::get("cache{$id}");
       }
-      else{
-        return Cache::remember("cache{$id}", 172800, function () use($id) {
-          return Productimgs::select(["*"])->where("id","=",$id)->get();
+     else{
+       return Cache::remember("cache{$id}", 172800, function () use($id) {
+         return Productimgs::select(["*"])->where("id","=",$id)->get();
                 
-          });
+         });
       }
 
 

@@ -70,7 +70,21 @@ function product(){
       });
     //   $("#main__page__product>div>div").click(function (){
     //        alert($(this).attr("id"));
-    //   })  
+    //   })
+    
+  //info
+  
+  var img = $(".imgshow>img");
+
+img.eq(1).attr("src",img.eq(0).attr("src"))
+
+      img.on("click",function(){
+         img.eq(0).attr("src", $(this).attr("src")) 
+      })
+
+  
+
+
   
 }
 export {

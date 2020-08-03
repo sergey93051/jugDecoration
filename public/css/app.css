@@ -1,4 +1,4 @@
-/*!
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap);@import url(https://fonts.googleapis.com/icon?family=Material+Icons);/*!
  * jQuery UI CSS Framework 1.12.1
  * http://jqueryui.com
  *
@@ -12480,7 +12480,8 @@ a.text-dark:focus {
 }
 
 .header .Regform__row,
-.header .logform__row {
+.header .logform__row,
+.header .buycard {
   position: fixed;
   width: 40%;
   height: auto;
@@ -12496,20 +12497,32 @@ a.text-dark:focus {
   display: none;
 }
 
-.row__product {
+.row__productinfo {
   display: flex;
   justify-content: center;
   margin-top: 8%;
 }
 
-.row__product div {
+.row__productinfo div {
   background-color: white;
   padding: 4px;
 }
 
-.row__product #img__main__prod {
-  width: 100%;
-  height: 350px;
+.row__productinfo .card__img {
+  width: 30%;
+  height: auto;
+  padding: 5px;
+}
+
+.row__productinfo #card__body {
+  margin-left: 3px;
+  padding: 6px;
+}
+
+.row__productinfo .buy__prod {
+  float: right;
+  margin-right: 10%;
+  margin-top: 2%;
 }
 
 .main__prod {
