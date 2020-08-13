@@ -10,9 +10,15 @@ Route::get("/productinfo/{id}","AuthUser\ProdinfoController@sentProdinfo");
   
 
 Route::any("/register","AuthUser\AuthRegController@register")->name("register");
-Route::any("/profile","AuthUser\AuthLogController@authorization")->name("profile");
-Route::get("/profile","AuthUser\AuthLogController@showprof");
+Route::any("/authorization","AuthUser\AuthLogController@authorization")->name("authorization");
 Route::post("/logouts","AuthUser\AuthLogController@logouts")->name('logouts');
+
+
+
+Route::get("/profile","AuthUser\ProfileController@showprof");
+Route::get("profileChange","AuthUser\ProfileController@changeProf")->name('profileChange');
+
+
 
 Route::group(["prefix"=>"/privateurl","middleware"=>['newauth']],function () {
 Route::get("/admin","Admin\AdminController@adminshow")->name("admin");

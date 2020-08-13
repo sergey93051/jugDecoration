@@ -9,7 +9,8 @@ function sentAjax(){
     });
     $.ajax({
  	  url:"/register",
- 	  type:"POST",
+      type:"POST",
+      cache:true,
  	  data:{
          email:$("#exampleInput__Email1").val(),
          nameS:$("#exampleInput__nameSname").val(),
@@ -50,19 +51,70 @@ function sentAjax(){
       });
 
  });
+//prof
+$("#sent__prof").on("click",function(){
+   $.ajaxSetup({
+ 	   headers:{
+ 	   	   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') 
+ 	   }
+    });
+    $.ajax({
+ 	  url:"profileChange",
+      type:"GET",
+      cache:true,
+ 	  data:{
+         nameS:$("#exampleInput__nameSnameP").val(),
+         phone:$("#exampleInput__phoneP").val(),
+         postcode:$("#exampleInput__postcodeP").val(),
+         country:$("#exampleInput__countryP").val(),
+         city:$("#exampleInput__cityP").val()
+         },//number rating
+       error: function(data) {
+        if( data.status === 422 ) {
+            $('#errormessangeP>div>ul').html('');
+            let showError = '';
+            var errors = $.parseJSON(data.responseText);
+            $.each(errors['errors'], function (key, value) {
+               showError = $("<li>"+value+"</li>");
+             $('#errormessangeP>div>ul').append(showError);
+             
+          })
+          $('#errormessangeP').css({
+                 display:"block"
+           })
+
+        }
+        $("#successmessangeP").css({
+         display:"none"
+        })
+
+      }, 
+       success:function(){
+          $("#successmessangeP").css({
+                 display:"block"
+          })
+         // window.location.href="/profileChange"
+         }
+      });
+
+ });
+
+
 //  end
 $("#log__but").on("click",function(){
-    let email = $("#logexampleInput__Email1").val();
-    let pass = $("#logexampleInput__Password1").val();
     $.ajaxSetup({
  	   headers:{
  	   	   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') 
  	   }
     });
     $.ajax({
- 	  url:"profile",
- 	  type:"POST",
- 	  data:{email:email,password:pass},//number rating
+ 	  url:"authorization",
+      type:"POST",
+      cache:true,
+      data:{
+            email:$("#logexampleInput__Email1").val(),
+            password:$("#logexampleInput__Password1").val()
+           },//number rating
        error: function(data) {
         if( data.status === 422 ) {
             $('#logerrormessange>div>ul').html('');
@@ -81,7 +133,7 @@ $("#log__but").on("click",function(){
        success:function(){
         
        window.location.reload();
-
+         
 
        }
       });
@@ -100,6 +152,7 @@ $(".but__prodinfo").on("click",function(){
    $.ajax({
      url:"productinfo/"+id,
      type:"GET",
+     cache:true,
      data:{id:id},
      error:function(jqXHR,textStatus,errorTHrown){
       alert("error:please check your network");

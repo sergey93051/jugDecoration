@@ -4,12 +4,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    {{-- <a class="navbar-brand" href="#">Home</a> --}}
-    {{-- <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <a class="dropdown-item" href="locale/arm">arm</a>
-      <a class="dropdown-item" href="locale/en">eng</a> 
-   </div> --}}
-
+    @if (Request::path()!="/")
+    <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+    @endif
     @if (Auth::guard("newuser")->check())
     <div class="btn-group" role="group">
       <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
@@ -31,7 +28,6 @@
     @else
     @if (Request::path()=="/")
     <ul class="navbar-nav">
-
       <li class="nav-item active">
         <span type="button" class="navbar-brand singbut">{{__("mess.Sing up") }}</span>
       </li>
@@ -41,22 +37,32 @@
     </ul>
     @endif
     @endif
-    <div class="row" id="lang">
-      <ul class="navbar-nav   mt-lg-0">
+      <ul class="navbar-nav" id="lang">
         <li class="nav-item">
-          <a class="navbar-brand" href="mess/arm">arm</a>
+          <a class="navbar-brand" href="mess/arm">
+            <img src="{{ asset('storage/flag/Armenia.png') }}" width="35px" height="auto" alt="">
+          </a>
         </li>
         <li class="nav-item">
-          <a class="navbar-brand" href="mess/en">eng</a>
+          <a class="navbar-brand" href="mess/en">
+            <img src="{{ asset('storage/flag/usd.png') }}" width="35px" height="auto" alt="">
+          </a>
         </li>
       </ul>
-    </div>
-
-    {{-- <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> --}}
-
+   <div id="icons__nav">
+     <ul class="navbar-nav" >
+       <li class="nav-item">
+         <img src="{{ asset('storage/phone/phone.png') }}" width="35px" height="auto">
+          <span>00099999999</span>
+       </li>
+       <li class="nav-item">
+         <img src="{{ asset('storage/phone/support.png') }}" width="35px" height="auto">
+         <span><a class="" href="#">support</a></span>
+       </li>
+    </ul> 
+   </div>
+    
+     
   </div>
 
 </nav>

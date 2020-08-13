@@ -15,17 +15,8 @@ public function logouts(Request $r){
         return redirect("/");
     }
 }
-public function showprof(){
-    if (Auth::guard("newuser")->check()){
-        return view("main.prof");
-
-   }else{
-         return redirect("/");
- }
-}
-
- public function Authorization(LoginRequest $r){
- return true;
+public function Authorization(LoginRequest $r){
+    return true;
 }
 
 

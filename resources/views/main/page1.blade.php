@@ -11,10 +11,8 @@
         </div> 
 </div>
 {{-- footer --}}
-<div class="main-footer">
-       <div class="container-fluid">
+<div class="container">
               @include('main.footer.footer')
-       </div>
 </div>
 @endsection
 

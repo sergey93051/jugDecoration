@@ -1,7 +1,7 @@
 
-<div class="container buycard">
+<div class="container buycard" style="display: none">
     <div class="row">
-        <div class="col-md-2 mb-0">
+        <div class="col-md-2 mb-1">
           <h4>Payment</h4>
        </div>
     </div>

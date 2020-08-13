@@ -12,8 +12,7 @@
         <input type="email" name="email" class="form-control" id="exampleInput__Email1" placeholder="Email*">
     </div>
     <div class="form-group">
-        <input type="text" name="nameSname" class="form-control" id="exampleInput__nameSname"
-            placeholder="Name Surname*">
+        <input type="text" name="nameSname" class="form-control" id="exampleInput__nameSname" placeholder="Name Surname*">
     </div>
     <div class="form-group">
         <input type="number" name="phone" class="form-control" id="exampleInput__phone" placeholder="phone*">

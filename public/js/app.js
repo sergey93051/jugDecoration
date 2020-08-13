@@ -39500,6 +39500,7 @@ function sentAjax() {
     $.ajax({
       url: "/register",
       type: "POST",
+      cache: true,
       data: {
         email: $("#exampleInput__Email1").val(),
         nameS: $("#exampleInput__nameSname").val(),
@@ -39537,22 +39538,65 @@ function sentAjax() {
         $('#success__reg').html($('<div class="alert alert-success" role="alert">' + 'success' + '</div>'));
       }
     });
-  }); //  end
+  }); //prof
 
-  $("#log__but").on("click", function () {
-    var email = $("#logexampleInput__Email1").val();
-    var pass = $("#logexampleInput__Password1").val();
+  $("#sent__prof").on("click", function () {
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
     });
     $.ajax({
-      url: "profile",
-      type: "POST",
+      url: "profileChange",
+      type: "GET",
+      cache: true,
       data: {
-        email: email,
-        password: pass
+        nameS: $("#exampleInput__nameSnameP").val(),
+        phone: $("#exampleInput__phoneP").val(),
+        postcode: $("#exampleInput__postcodeP").val(),
+        country: $("#exampleInput__countryP").val(),
+        city: $("#exampleInput__cityP").val()
+      },
+      //number rating
+      error: function error(data) {
+        if (data.status === 422) {
+          $('#errormessangeP>div>ul').html('');
+          var showError = '';
+          var errors = $.parseJSON(data.responseText);
+          $.each(errors['errors'], function (key, value) {
+            showError = $("<li>" + value + "</li>");
+            $('#errormessangeP>div>ul').append(showError);
+          });
+          $('#errormessangeP').css({
+            display: "block"
+          });
+        }
+
+        $("#successmessangeP").css({
+          display: "none"
+        });
+      },
+      success: function success() {
+        $("#successmessangeP").css({
+          display: "block"
+        }); // window.location.href="/profileChange"
+      }
+    });
+  }); //  end
+
+  $("#log__but").on("click", function () {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: "authorization",
+      type: "POST",
+      cache: true,
+      data: {
+        email: $("#logexampleInput__Email1").val(),
+        password: $("#logexampleInput__Password1").val()
       },
       //number rating
       error: function error(data) {
@@ -39586,6 +39630,7 @@ function sentAjax() {
     $.ajax({
       url: "productinfo/" + id,
       type: "GET",
+      cache: true,
       data: {
         id: id
       },
