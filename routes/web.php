@@ -25,6 +25,11 @@ Route::get("/admin","Admin\AdminController@adminshow")->name("admin");
 Route::get("/showProd","Admin\AddProdController@showadd")->name("showprod");
 Route::any("/addProd","Admin\AddProdController@addProd")->name("addProd");
 
+//cate
+Route::get("/showCate","Admin\addCateController@showCate")->name("showCate");
+ Route::any("/addCate","Admin\addCateController@addCate")->name("addCate");
+
+
 });
 
 

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 class MainPageShow extends Controller{
     
     public function mainshow(){
-         return view('main.page1',["prodimg"=>CacheDBmain::CacheMainProduct()]);
+         return view('main.page1',["Category"=>CacheDBmain::CacheMainProduct()]);
     }
     public function local_lang($locale){
            Session::put("locale",$locale);

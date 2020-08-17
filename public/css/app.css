@@ -12542,9 +12542,70 @@ a.text-dark:focus {
   margin-top: 2%;
 }
 
-.main__prod {
-  z-index: 0;
+.main__cate {
   margin-top: 2%;
+}
+
+.main__cate .row div {
+  margin: 0;
+  padding: 0;
+}
+
+.main__cate .div1,
+.main__cate .div2,
+.main__cate .div3,
+.main__cate .divelse {
+  position: relative;
+}
+
+.main__cate .div1 img,
+.main__cate .div2 img,
+.main__cate .div3 img,
+.main__cate .divelse img {
+  width: 100%;
+  border: 3px solid #ececec;
+}
+
+.main__cate .div1 .cat__row__maintext,
+.main__cate .div2 .cat__row__maintext,
+.main__cate .div3 .cat__row__maintext,
+.main__cate .divelse .cat__row__maintext {
+  position: absolute;
+  bottom: 0.3%;
+  border-left: 3px solid #ececec;
+  border-right: 3px solid #ececec;
+  background-color: rgba(187, 187, 187, 0.6);
+  width: 100%;
+  height: 80px;
+}
+
+.main__cate .div1 .cat__row__maintext p,
+.main__cate .div1 .cat__row__maintext h1,
+.main__cate .div2 .cat__row__maintext p,
+.main__cate .div2 .cat__row__maintext h1,
+.main__cate .div3 .cat__row__maintext p,
+.main__cate .div3 .cat__row__maintext h1,
+.main__cate .divelse .cat__row__maintext p,
+.main__cate .divelse .cat__row__maintext h1 {
+  text-align: center;
+  color: blanchedalmond;
+}
+
+.main__cate .div1 .cat__row__maintext p,
+.main__cate .div2 .cat__row__maintext p,
+.main__cate .div3 .cat__row__maintext p,
+.main__cate .divelse .cat__row__maintext p {
+  opacity: 0;
+}
+
+.main__cate .div2 img,
+.main__cate .div3 img,
+.main__cate .divelse img {
+  height: 250px;
+}
+
+.main__cate .div1 img {
+  height: 500px;
 }
 
 #main__page__product .row {

@@ -19,6 +19,7 @@
         <nav>
             <ul>
                 <li><a href="{{  route("admin") }}">Home</a></li>
+                <li><a href="{{  route("showCate") }}">add category</a></li>
                 <li><a href="{{  route("showprod") }}">add Product</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>

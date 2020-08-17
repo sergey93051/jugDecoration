@@ -21,7 +21,7 @@ class AddProdController extends Controller{
    }
 
       public function showadd(){
-            $Productimgs = Productimgs::select(["*"])->get();
+          $Productimgs = Productimgs::select(["*"])->get();
            
           return view("admin.addProd",['prodimg' => $Productimgs]);
       }
@@ -56,6 +56,8 @@ class AddProdController extends Controller{
      
           return redirect()->back()->with('success', 'success add');  
     }
+
+
 
 
 }

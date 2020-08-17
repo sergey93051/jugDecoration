@@ -2,7 +2,7 @@
  namespace App\DBCache;
 
  use Illuminate\Support\Facades\Cache;
- use App\Productimgs;
+ use App\Category;
  
  
 class CacheMainProduct{
@@ -15,9 +15,8 @@ class CacheMainProduct{
       }
       else{
         return Cache::remember("mainProduct", 172800, function () {
-          return $Productimgs = Productimgs::select(["*"])->get(); 
-                
-          });
+          return Category::select(["*"])->get(); 
+        });
       }
 
 

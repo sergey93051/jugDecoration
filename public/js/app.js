@@ -39671,6 +39671,7 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 
  //mainpage page1   (/)
 
+Object(_index_js__WEBPACK_IMPORTED_MODULE_2__["catem"])();
 Object(_index_js__WEBPACK_IMPORTED_MODULE_2__["index"])();
 Object(_ajax_js__WEBPACK_IMPORTED_MODULE_3__["sentAjax"])();
 Object(_index_js__WEBPACK_IMPORTED_MODULE_2__["product"])();
@@ -39726,13 +39727,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!*******************************!*\
   !*** ./resources/js/index.js ***!
   \*******************************/
-/*! exports provided: index, product */
+/*! exports provided: index, product, catem */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "index", function() { return index; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "product", function() { return product; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "catem", function() { return catem; });
 function index() {
   var main_reg = $(".Regform__row");
   var main_log = $(".logform__row");
@@ -39789,6 +39791,28 @@ function index() {
       });
     }
   }); // sing up and log in
+}
+
+function catem() {
+  $(".cat__row__maintext").hover(function () {
+    $(this).animate({
+      height: "160px"
+    }, 1000).css({
+      backgroundColor: "rgba(109, 109, 109, 0.9)"
+    });
+    $(this).children("p").animate({
+      opacity: "1"
+    }, 1500);
+  }, function () {
+    $(this).animate({
+      height: "70px"
+    }, 150).css({
+      backgroundColor: "rgba(187, 187, 187, 0.6)"
+    });
+    $(this).children("p").animate({
+      opacity: "0"
+    }, 150);
+  });
 }
 
 function product() {

@@ -5,11 +5,8 @@
 {{-- header --}}
 @include('main.controlheader.mainheader')
 {{-- content --}}
-<div class="main__prod">
-        <div class="container-fluid">
-               @include('main.pageProduct.product')
-        </div> 
-</div>
+{{-- @include('main.pageProduct.product') --}}
+@include('main.pageProduct.catepage')
 {{-- footer --}}
 <div class="container">
               @include('main.footer.footer')

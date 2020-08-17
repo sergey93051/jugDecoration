@@ -94,9 +94,58 @@
 }
 
  //
- .main__prod{
-      z-index:0;
-      margin-top:2%;
+ .main__cate{
+     margin-top:2%;
+      .row{
+            div{
+                  margin: 0;
+                  padding: 0;
+            }
+          
+      }
+    
+      .div1,.div2,.div3,.divelse{
+            position: relative;
+            img{
+             
+              width:100%;
+              border:3px solid rgb(236, 236, 236);
+              
+            }
+            .cat__row__maintext{
+                  position:absolute;
+                  bottom:0.3%;
+                  border-left:3px solid rgb(236, 236, 236);
+                  border-right:3px solid  rgb(236, 236, 236);
+                  background-color:rgba(187, 187, 187, 0.6);
+                  width:100%;
+                  height:80px;
+                   p,h1{
+                         text-align: center;
+                         color: blanchedalmond;
+                   }
+                   p{
+                     opacity:0;
+                   }
+              }
+            
+            
+            
+      }
+      //divall
+      .div2,.div3,.divelse{     
+          img{
+              height:250px;  
+          }
+        
+      }
+     //div1
+      .div1{
+        img{
+             height:500px; 
+          }
+      }
+
 } 
 #main__page__product{
       .row{
