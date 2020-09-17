@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav__Bar">
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark" id="nav__Bar">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -37,32 +37,31 @@
     </ul>
     @endif
     @endif
-      <ul class="navbar-nav" id="lang">
+    <ul class="navbar-nav" id="lang">
+      <li class="nav-item">
+        <a class="navbar-brand" href="mess/arm">
+          <img src="{{ asset('storage/flag/Armenia.png') }}" width="35px" height="auto" alt="">
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand" href="mess/en">
+          <img src="{{ asset('storage/flag/usd.png') }}" width="35px" height="auto" alt="">
+        </a>
+      </li>
+    </ul>
+    <div id="icons__nav">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="navbar-brand" href="mess/arm">
-            <img src="{{ asset('storage/flag/Armenia.png') }}" width="35px" height="auto" alt="">
-          </a>
+          <img src="{{ asset('storage/phone/phone.png') }}" width="35px" height="auto">
+          <span>00099999999</span>
         </li>
         <li class="nav-item">
-          <a class="navbar-brand" href="mess/en">
-            <img src="{{ asset('storage/flag/usd.png') }}" width="35px" height="auto" alt="">
-          </a>
+          <img src="{{ asset('storage/phone/support.png') }}" width="35px" height="auto">
+          <span><a class="" href="#">support</a></span>
         </li>
       </ul>
-   <div id="icons__nav">
-     <ul class="navbar-nav" >
-       <li class="nav-item">
-         <img src="{{ asset('storage/phone/phone.png') }}" width="35px" height="auto">
-          <span>00099999999</span>
-       </li>
-       <li class="nav-item">
-         <img src="{{ asset('storage/phone/support.png') }}" width="35px" height="auto">
-         <span><a class="" href="#">support</a></span>
-       </li>
-    </ul> 
-   </div>
-    
-     
+    </div>
+
   </div>
 
 </nav>

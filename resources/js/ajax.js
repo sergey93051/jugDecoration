@@ -150,21 +150,39 @@ $(".but__prodinfo").on("click",function(){
       }
    });
    $.ajax({
-     url:"productinfo/"+id,
+     url:"info/"+id,
      type:"GET",
-     cache:true,
+     cache:false,
      data:{id:id},
      error:function(jqXHR,textStatus,errorTHrown){
       alert("error:please check your network");
      },
-      success:function(){
-               window.location.href="productinfo/"+id;
+     success:function(){           
+                window.location.href="info/"+id;
        }
      });
 });
 
-
-
+ $(".cat__row__maintext").on("click",function(){
+   $.ajaxSetup({
+      headers:{
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') 
+      }
+   });
+    let id = $(this).attr("id");
+   $.ajax({
+   type:"GET",
+   url:"products/"+id,
+   cache:false,
+   data:{id:id},
+    error:function(jqXHR,textStatus,errorTHrown){
+       alert("error:please check your network");
+    },
+    success:function(){
+      window.location.href="products/"+id;
+    }
+      });
+});
 
 }
 

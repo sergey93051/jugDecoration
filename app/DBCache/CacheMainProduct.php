@@ -9,20 +9,15 @@ class CacheMainProduct{
 
   public function CacheMainProduct(){
   
-  
-      if (Cache::has("mainProduct")) {
-       return Cache::get("mainProduct");
-      }
-      else{
-        return Cache::remember("mainProduct", 172800, function () {
-          return Category::select(["*"])->get(); 
-        });
-      }
-
-
-
-      
-      
-     }
+    return Category::select(["*"])->get(); 
+      // if (Cache::has("mainProduct")) {
+      //  return Cache::get("mainProduct");
+      // }
+      // else{
+      //   return Cache::remember("mainProduct", 172800, function () {
+          
+      //   });
+      // }
+ }
  
 }

@@ -1,6 +1,10 @@
 @extends('main.layouts.index')
 @section('page1','profile')
-@include('main.controlheader.mainheader')
+
+@section('header')
+@include('main.controlheader.mainheader')   
+@endsection
+
 @section('containerMain')
 <div class="row__profile">
   {{-- @foreach ($prodinfo as $item) --}}

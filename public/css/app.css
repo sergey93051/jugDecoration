@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap);@import url(https://fonts.googleapis.com/icon?family=Material+Icons);/*!
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap);@import url(https://fonts.googleapis.com/css2?family=Satisfy&display=swap);@import url(https://fonts.googleapis.com/icon?family=Material+Icons);/*!
  * jQuery UI CSS Framework 1.12.1
  * http://jqueryui.com
  *
@@ -12447,6 +12447,10 @@ a.text-dark:focus {
   }
 }
 
+body {
+  transition: 2s;
+}
+
 .showdown {
   position: fixed;
   border: 1px solid;
@@ -12490,6 +12494,77 @@ a.text-dark:focus {
   color: white;
 }
 
+.header #title__head {
+  margin-top: 50px;
+  margin-bottom: 1%;
+}
+
+.header #title__head h2,
+.header #title__head p {
+  text-align: center;
+}
+
+.header #title__head hr {
+  border: 1px solid;
+  width: 60px;
+}
+
+.header #main__headCont {
+  margin: 80px 1px 0px 1px;
+}
+
+.header #main__headCont #videoKav1 {
+  height: 400px;
+  width: auto;
+  margin: 4px;
+  padding: 1px;
+  overflow: hidden;
+}
+
+.header #main__headCont #videoKav1 video {
+  width: 100%;
+  min-width: 100% !important;
+  min-height: 100% !important;
+}
+
+.header #main__headCont #jug__mainfoto {
+  position: relative;
+  margin: 4px;
+  padding: 1px;
+  width: 100%;
+  height: 400px;
+}
+
+.header #main__headCont #jug__mainfoto img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.header #main__headCont #jug__mainfoto .jug__ptext {
+  position: absolute;
+  bottom: 4%;
+  z-index: 0;
+  opacity: 0.8;
+  padding: 3px;
+  margin: 3px;
+  width: 98%;
+}
+
+.header #main__headCont #jug__mainfoto .jug__ptext img {
+  float: left;
+  margin-left: 1%;
+  width: 70px;
+  height: auto;
+}
+
+.header #main__headCont #jug__mainfoto .jug__ptext span {
+  margin-top: 5%;
+  margin-left: 1%;
+  font-size: 20px;
+  color: #2e2d2d;
+}
+
 .header .main__reg {
   position: relative;
   display: flex;
@@ -12518,6 +12593,7 @@ a.text-dark:focus {
   display: flex;
   justify-content: center;
   margin-top: 8%;
+  z-index: 0;
 }
 
 .row__productinfo div {
@@ -12540,6 +12616,36 @@ a.text-dark:focus {
   float: right;
   margin-right: 10%;
   margin-top: 2%;
+}
+
+.main__order {
+  position: absolute;
+  background-color: rgba(219, 219, 219, 0.877);
+  margin-top: 12%;
+  left: 20%;
+  width: 60%;
+  height: auto;
+  z-index: 1;
+  display: none;
+}
+
+.main__order h2 {
+  text-align: center;
+  padding: 15px;
+}
+
+.main__order .orders {
+  margin-top: 5%;
+  padding: 20px;
+}
+
+.main__order .orders div {
+  margin: 5%;
+  padding: 25px;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  background: coral;
 }
 
 .main__cate {
@@ -12570,31 +12676,39 @@ a.text-dark:focus {
 .main__cate .div2 .cat__row__maintext,
 .main__cate .div3 .cat__row__maintext,
 .main__cate .divelse .cat__row__maintext {
+  position: relative;
+}
+
+.main__cate .div1 .cat__row__maintext .text__show,
+.main__cate .div2 .cat__row__maintext .text__show,
+.main__cate .div3 .cat__row__maintext .text__show,
+.main__cate .divelse .cat__row__maintext .text__show {
   position: absolute;
   bottom: 0.3%;
   border-left: 3px solid #ececec;
   border-right: 3px solid #ececec;
   background-color: rgba(187, 187, 187, 0.6);
+  padding: 2%;
   width: 100%;
   height: 80px;
 }
 
-.main__cate .div1 .cat__row__maintext p,
-.main__cate .div1 .cat__row__maintext h1,
-.main__cate .div2 .cat__row__maintext p,
-.main__cate .div2 .cat__row__maintext h1,
-.main__cate .div3 .cat__row__maintext p,
-.main__cate .div3 .cat__row__maintext h1,
-.main__cate .divelse .cat__row__maintext p,
-.main__cate .divelse .cat__row__maintext h1 {
+.main__cate .div1 .cat__row__maintext .text__show p,
+.main__cate .div1 .cat__row__maintext .text__show h1,
+.main__cate .div2 .cat__row__maintext .text__show p,
+.main__cate .div2 .cat__row__maintext .text__show h1,
+.main__cate .div3 .cat__row__maintext .text__show p,
+.main__cate .div3 .cat__row__maintext .text__show h1,
+.main__cate .divelse .cat__row__maintext .text__show p,
+.main__cate .divelse .cat__row__maintext .text__show h1 {
   text-align: center;
   color: blanchedalmond;
 }
 
-.main__cate .div1 .cat__row__maintext p,
-.main__cate .div2 .cat__row__maintext p,
-.main__cate .div3 .cat__row__maintext p,
-.main__cate .divelse .cat__row__maintext p {
+.main__cate .div1 .cat__row__maintext .text__show p,
+.main__cate .div2 .cat__row__maintext .text__show p,
+.main__cate .div3 .cat__row__maintext .text__show p,
+.main__cate .divelse .cat__row__maintext .text__show p {
   opacity: 0;
 }
 
@@ -12608,12 +12722,21 @@ a.text-dark:focus {
   height: 500px;
 }
 
-#main__page__product .row {
-  margin: auto 1%;
+#main__page__product .cate__name {
+  margin-top: 6%;
+  margin-bottom: 3%;
+  padding: 2px;
 }
 
-#main__page__product .row > div {
-  margin-left: 6px;
+#main__page__product .cate__name p {
+  text-align: center;
+  font-family: "Satisfy", cursive;
+  font-size: 30px;
+}
+
+#main__page__product .card {
+  margin-left: 1%;
+  padding: 2px;
 }
 
 #main__page__product .title h5 {
@@ -12669,10 +12792,16 @@ a.text-dark:focus {
 }
 
 .main__footer {
-  margin-bottom: 3%;
+  position: relative;
+  margin-top: 2%;
+  padding: 5px;
+  width: auto;
+  height: 90px;
+  background-color: #2a2a2a;
 }
 
 .main__footer span {
   margin: 4px;
+  color: white;
 }
 

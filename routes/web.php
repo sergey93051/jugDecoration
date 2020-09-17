@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', "AuthUser\MainPageShow@mainshow");
 Route::get('mess/{locale}','AuthUser\MainPageShow@local_lang');
+// Route::get("/orders","AuthUser\NewOrders@showorder");
 
+Route::get("products/info/{id}","AuthUser\ProdinfoController@prodinfo");
 
-Route::get("/productinfo/{id}","AuthUser\ProdinfoController@sentProdinfo");
-  
+Route::get("/products/{id}","AuthUser\ProductController@productMain");
+
 
 Route::any("/register","AuthUser\AuthRegController@register")->name("register");
 Route::any("/authorization","AuthUser\AuthLogController@authorization")->name("authorization");
@@ -17,6 +19,7 @@ Route::post("/logouts","AuthUser\AuthLogController@logouts")->name('logouts');
 
 Route::get("/profile","AuthUser\ProfileController@showprof");
 Route::get("profileChange","AuthUser\ProfileController@changeProf")->name('profileChange');
+
 
 
 

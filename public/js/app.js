@@ -39628,9 +39628,9 @@ function sentAjax() {
       }
     });
     $.ajax({
-      url: "productinfo/" + id,
+      url: "info/" + id,
       type: "GET",
-      cache: true,
+      cache: false,
       data: {
         id: id
       },
@@ -39638,7 +39638,29 @@ function sentAjax() {
         alert("error:please check your network");
       },
       success: function success() {
-        window.location.href = "productinfo/" + id;
+        window.location.href = "info/" + id;
+      }
+    });
+  });
+  $(".cat__row__maintext").on("click", function () {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    var id = $(this).attr("id");
+    $.ajax({
+      type: "GET",
+      url: "products/" + id,
+      cache: false,
+      data: {
+        id: id
+      },
+      error: function error(jqXHR, textStatus, errorTHrown) {
+        alert("error:please check your network");
+      },
+      success: function success() {
+        window.location.href = "products/" + id;
       }
     });
   });
@@ -39738,7 +39760,9 @@ __webpack_require__.r(__webpack_exports__);
 function index() {
   var main_reg = $(".Regform__row");
   var main_log = $(".logform__row");
-  var showdown = $(".showdown"); //display:block;
+  var showdown = $(".showdown"); //show__order
+
+  var main_orders = $('.main__order'); //display:block;
 
   $(".material-icons").click(function () {
     if (main_reg.css('display') === 'block') {
@@ -39749,11 +39773,26 @@ function index() {
       main_log.css({
         display: 'none'
       });
+    } else if (main_orders.css('display') === 'block') {
+      main_orders.css({
+        display: 'none'
+      });
     }
 
     if (showdown.css('display') === 'block') {
       showdown.css({
         display: 'none'
+      });
+    }
+  });
+  $('.buyprod').click(function () {
+    main_orders.css({
+      display: "block"
+    });
+
+    if (showdown.css('display') == 'none') {
+      showdown.css({
+        display: 'block'
       });
     }
   });
@@ -39794,22 +39833,22 @@ function index() {
 }
 
 function catem() {
-  $(".cat__row__maintext").hover(function () {
-    $(this).animate({
+  var cat_maintext = $(".cat__row__maintext");
+  cat_maintext.attr("type", "submit");
+  $(".hov__show").hover(function () {
+    $(this).find('.text__show').animate({
       height: "160px"
     }, 1000).css({
       backgroundColor: "rgba(109, 109, 109, 0.9)"
-    });
-    $(this).children("p").animate({
+    }).children("p").animate({
       opacity: "1"
-    }, 1500);
+    }, 2100);
   }, function () {
-    $(this).animate({
+    $(this).find('.text__show').animate({
       height: "70px"
-    }, 150).css({
+    }, 5).css({
       backgroundColor: "rgba(187, 187, 187, 0.6)"
-    });
-    $(this).children("p").animate({
+    }).children("p").animate({
       opacity: "0"
     }, 150);
   });
@@ -39824,11 +39863,7 @@ function product() {
     $(this).css({
       border: "0.5px solid white"
     });
-  }); //   $("#main__page__product>div>div").click(function (){
-  //        alert($(this).attr("id"));
-  //   })
-  //info
-
+  });
   var img = $(".imgshow>img");
   img.eq(1).attr("src", img.eq(0).attr("src"));
   img.on("click", function () {

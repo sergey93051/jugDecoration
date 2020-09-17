@@ -53,8 +53,7 @@ class AddProdController extends Controller{
              "price" => $r->input("price")
          ]);
          $this->user->User()->Productimgs()->save($create); 
-     
-          return redirect()->back()->with('success', 'success add');  
+         return redirect()->back()->with('success', 'success add');  
     }
 
 

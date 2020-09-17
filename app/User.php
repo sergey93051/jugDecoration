@@ -40,11 +40,6 @@ class User extends Authenticatable
      public function admins(){
       return $this->belongsToMany('App\Admins',"roles","user_id", "admin_id");
      }
-     
-     public function CatRole(){
-         return $this->belongsToMany('App\Category',"rolecats","cate_id","prod_id");
-     }
-
      public function Productimgs(){
          return $this->hasMany("App\Productimgs","user_id","id");
      }

@@ -1,7 +1,24 @@
-<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-    </div>
-  </div>
+<div class="container-fluid">
+   <div class="row" id="main__headCont">
+      <div class="col-sm" id="jug__mainfoto">
+         <img src="{{ asset("storage/mainimg/jugmain.jpg") }}" alt="">
+        <div class="alert alert-light jug__ptext" role="alert">
+        <img src="{{asset('storage/tokos/5tok.png')}}">
+         <span>ամեն գնումից  նվիրաբերում ենք բարեգործությանը</span>
+      </div>
+      </div>
+      <div class="col-sm" id="videoKav1">
+         <video controls preload="none" controlsList="nodownload">
+            <source src="{{ asset("video/kav1.mp4") }}" type="video/mp4">
+            <source src="{{ asset("video/kav1.ogg") }}" type="video/ogg">
+         </video>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col" id="title__head">
+         <hr>
+         <h2 class="font-italic">Կիրառական և դեկորատիվ կավե պարագաներ</h2>
+         <p class="lead my-3">Միայն ձեռքի աշխատանք</p>
+      </div>
+   </div>
+</div>

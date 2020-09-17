@@ -12,8 +12,9 @@ use App\Http\Controllers\Controller;
 class ProdinfoController extends Controller{
   
 
-public function sentProdinfo($id){
+public function prodinfo($id){
     //  Cache::flush();
+  
  return view("main.pageProduct.prodinfo",['dBProdinfo'=>CacheDB::CacheProdinfo($id)]);
         
   }

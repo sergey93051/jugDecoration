@@ -10,6 +10,7 @@
 </head>
 <body>
     <div class="showdown"></div>
+    @yield('header')
     @yield('containerMain')
     <script src="{{ mix('/js/app.js') }}"></script>
 </body>

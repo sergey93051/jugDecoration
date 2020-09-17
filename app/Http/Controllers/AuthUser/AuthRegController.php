@@ -12,16 +12,17 @@ class AuthRegController extends Controller{
     }
    
  public function register(RegistrRequest $r){
-    $data = [
-              'email'=>$r->input('email'),
-              'nameS'=>$r->input('nameS'),
-              'phone'=>$r->input('phone'),
-              'postcode'=>$r->input('postcode'),
-              'country'=>$r->input('country'),
-              "city"=>$r->input('city'),
-              'password' =>$r->input('password'),
-        ];
-        $user = User::create($data);
+
+        $user = User::create([
+            'email'=>$r->input('email'),
+            'nameS'=>$r->input('nameS'),
+            'phone'=>$r->input('phone'),
+            'postcode'=>$r->input('postcode'),
+            'country'=>$r->input('country'),
+            "city"=>$r->input('city'),
+            'password' =>$r->input('password')   
+        ]);
         Auth::guard('newuser')->login($user);
+        return true;
     }
 }

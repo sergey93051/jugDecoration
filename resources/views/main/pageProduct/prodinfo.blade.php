@@ -1,8 +1,14 @@
 @extends('main.layouts.index')
-@section('page1','product')
+@section('page1','productbuy')
+
+@section('header')
+@include('main.controlheader.mainheader')   
+@endsection
+
 @section('containerMain')
-@include('main.controlheader.mainheader')
+
 <div class="row__productinfo">
+  
   @foreach ($dBProdinfo as $item)
   <div class="card mb-5" style="max-width:70%;">
     <div class="row no-gutters">
@@ -15,8 +21,8 @@
       <div class="col-md-8">
         <div class="row col-5 buy__prod">
           @if (Auth::guard("newuser")->check())
-          <p  type="button" class="alert alert-success buyprod" role="alert">
-            buy now
+          <p type="button" class="alert alert-success buyprod" role="alert">
+            Գնել հիմա
           </p>
           @else
           <p type="button" class="alert alert-danger singbut" role="alert">
@@ -32,8 +38,10 @@
         </div>
       </div>
     </div>
+  
   </div>
-  @endforeach
+  @endforeach  
 </div>
+
 
 @endsection

@@ -2,9 +2,7 @@
   <span type="button" class="material-icons">
     close
   </span>
-  <div id="success__reg">
-   
-  </div>
+  <div id="success__reg"></div>
   {{-- error --}}
   <span id="logerrormessange">
     <div class="alert alert-danger">
