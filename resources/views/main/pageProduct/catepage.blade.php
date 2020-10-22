@@ -6,8 +6,8 @@
             <img src="{{ asset("storage/Cate_img/{$item->img}") }}" alt="">
             <div class="cat__row__maintext" id="{{$item->id}}">
                 <div class="text__show">
-                    <h1>{{$item->name}}</h1>
-                    <p>{{$item->text}}</p>
+                    <h1>{{__("catlang.$item->name")}}</h1>
+                    <p>{{__("catlang.$item->text")}}</p>
                 </div>
             </div>
         </div>
@@ -17,8 +17,8 @@
                 <img src="{{ asset("storage/Cate_img/{$item->img}") }}" alt="">
                 <div class="cat__row__maintext" id="{{$item->id}}">
                     <div class="text__show">
-                        <h1>{{$item->name}}</h1>
-                        <p>{{$item->text}}</p>
+                        <h1>{{__("catlang.$item->name")}}</h1>
+                        <p>{{__("catlang.$item->text")}}</p>
                     </div>
                 </div>
             </div>
@@ -27,8 +27,8 @@
                 <img src="{{ asset("storage/Cate_img/{$item->img}") }}" alt="">
                 <div class="cat__row__maintext" id="{{$item->id}}">
                     <div class="text__show">
-                        <h1>{{$item->name}}</h1>
-                        <p>{{$item->text}}</p>
+                        <h1>{{__("catlang.$item->name")}}</h1>
+                        <p>{{__("catlang.$item->text")}}</p>
                     </div>
                 </div>
             </div>
@@ -38,8 +38,8 @@
             <img src="{{ asset("storage/Cate_img/{$item->img}") }}" alt="">
             <div class="cat__row__maintext" id="{{$item->id}}">
                 <div class="text__show">
-                    <h1>{{$item->name}}</h1>
-                    <p>{{$item->text}}</p>
+                    <h1>{{__("catlang.$item->name")}}</h1>
+                    <p>{{__("catlang.$item->text")}}</p>
                 </div>
             </div>
         </div>

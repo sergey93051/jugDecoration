@@ -1,0 +1,115 @@
+.main__order{
+    position: fixed;
+    background-color: rgba(219, 219, 219, 0.877);
+    margin-top:110px;
+    left: 15%;     
+    width:70%;
+    height: auto;
+    z-index:1;
+    display:none;
+    h2{
+          text-align: center;
+          padding: 15px;
+    }
+    .orders{
+          margin-top:10px;
+          padding: 20px;
+          a{
+                margin:5%;
+                padding:25px;
+                font-size: 20px;
+                color:white;
+                text-align: center;
+                background: coral;
+                text-decoration: none;
+                
+          }
+    }
+}
+@include widmax900{
+    .main__order{
+          width:80%;
+          left: 9%;  
+   
+    .orders{
+            a{
+                padding:15px;
+                font-size: 20px;
+          }
+    }
+}
+}
+@include widmax794{
+    .main__order{
+    .orders{
+         a{
+          padding:8px;
+          font-size: 15px;
+          }
+    }
+}
+}
+//
+.order__finish{
+     display:flex;
+     justify-content: center;
+     margin-top:85px;
+     padding:10px;
+     h2{
+           text-align: center;
+     }
+     .ordaddprod{
+           span{
+                 margin:3px;
+                 padding: 2px;
+           }
+     }
+     .ord__button__main{
+           margin-left:5%;
+     }
+
+        //   .order__table{
+        //           .ordaddprod{
+        //             button:first-child{
+        //                float: left;
+        //                margin-left:4px;
+        //             }
+        //             span{
+        //                 float: left;
+        //                 margin-left:4px; 
+        //             }
+        //             button:last-child{
+        //                float: left;
+        //                margin-left:4px;
+        //             }
+                     
+        //           }
+
+        //   }
+
+
+}
+
+@include widmax575{
+    .table-bordered{
+        tr{
+            position: relative;
+            th{             
+             
+                font-size: 10px;
+               
+            }
+        }
+    }
+    .order__table{
+        position: relative;
+        td{
+           
+            font-size: 10px;
+        }
+    }
+}
+.order__finish__success{
+     display:none;
+     margin-top: 5%;
+}

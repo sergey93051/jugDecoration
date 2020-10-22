@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 class RegistrRequest extends FormRequest
 {
     /**
@@ -23,14 +24,14 @@ class RegistrRequest extends FormRequest
     public function rules()
     {
         return [
-               'email' => 'required|unique:users|email',
-                'nameS'=> 'required|string|min:2|max:20',
-                'phone'=>   'required|digits_between:8,20|numeric',
-                'postcode'=> 'required|digits_between:3,10|numeric',
-                'country'=>'required|string|max:20|min:2',
-                 "city"=>'required|string|max:20|min:2',
-                'password' => 'required|min:8|max:30'
-                
+            'email' => 'required|unique:users|email',
+            'nameS' => 'required|string|min:2|max:20',
+            'phone' =>   'required|min:8|max:20',
+            'country' => 'required|string|max:20|min:2',
+            "city" => 'required|string|max:20|min:2',
+            'street' => 'string|min:3|max:20',
+            'password' => 'required|min:8|max:30'
+
         ];
     }
 }

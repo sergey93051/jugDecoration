@@ -15,14 +15,15 @@ class CreateProductimgsTable extends Migration
     {
         Schema::create('productimgs', function (Blueprint $table) {
             $table->id();
-            $table->string("directory",190);
-            $table->string("img",190);
-            $table->string("img_2",190)->nullable();
-            $table->string("img_3",190)->nullable();
-            $table->string("title",80);
-            $table->string("after",80);
+            $table->string("directory", 190);
+            $table->string("img", 190);
+            $table->string("img_2", 190)->nullable();
+            $table->string("img_3", 190)->nullable();
+            $table->string("title", 200);
+            $table->string("etitle", 200);
             $table->text("text");
-            $table->string("price",50);
+            $table->text("etext");
+            $table->string("price", 50);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

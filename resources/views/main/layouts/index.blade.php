@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-    <div class="showdown"></div>
+    
+   <div class="container-fluid showdown" style="background: rgba(236, 235, 235, 0.808);opacity:0.4;"></div> 
     @yield('header')
     @yield('containerMain')
     <script src="{{ mix('/js/app.js') }}"></script>

@@ -1,0 +1,35 @@
+@mixin widmax794{
+    @media  (max-width:794px){
+        @content;
+    }
+}
+@mixin  widmax768{
+    @media  (max-width:768px){
+        @content;
+    }
+}
+@mixin widmax900{
+    @media  (max-width:900px){
+        @content;
+    }
+}
+@mixin widmax591{
+    @media  (max-width:591px){
+        @content;
+    }
+}
+@mixin widmax575{
+    @media  (max-width:575px){
+        @content;
+    }
+}
+@mixin widmax411{
+    @media  (max-width:411px){
+        @content;
+    }
+}
+@mixin widmax393{
+    @media  (max-width:393px){
+        @content;
+    }
+}

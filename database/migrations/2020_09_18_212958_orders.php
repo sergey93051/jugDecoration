@@ -4,19 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Categorymigration extends Migration
+class Orders extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
-        Schema::create('Category', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string("name",190);
-            $table->string("img",190);
-            $table->string("text",190)->nullable();
+            $table->string("prod", 190);
+            $table->string("price", 190);
+            $table->string("total", 190);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -30,6 +31,6 @@ class Categorymigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Category');
+        Schema::dropIfExists('orders');
     }
 }

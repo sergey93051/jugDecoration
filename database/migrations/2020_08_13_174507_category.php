@@ -12,6 +12,7 @@ class Category extends Migration
      * @return void
      */
     public function up(){
+        Schema::dropIfExists('Category');
         Schema::create('Category', function (Blueprint $table) {
             $table->id();
             $table->string("name",190);

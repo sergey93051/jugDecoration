@@ -1,10 +1,10 @@
 <div class="container-fluid">
    <div class="row" id="main__headCont">
-      <div class="col-sm" id="jug__mainfoto">
+      <div class="col-sm jug__mainfoto">
          <img src="{{ asset("storage/mainimg/jugmain.jpg") }}" alt="">
         <div class="alert alert-light jug__ptext" role="alert">
-        <img src="{{asset('storage/tokos/5tok.png')}}">
-         <span>ամեն գնումից  նվիրաբերում ենք բարեգործությանը</span>
+        <img src="{{asset('storage/tokos/5toc.png')}}">
+         <span>{{__("mess.յուրաքանչյուր գնումից նվիրաբերում ենք բարեգործությանը")}}</span>
       </div>
       </div>
       <div class="col-sm" id="videoKav1">
@@ -17,8 +17,8 @@
    <div class="row">
       <div class="col" id="title__head">
          <hr>
-         <h2 class="font-italic">Կիրառական և դեկորատիվ կավե պարագաներ</h2>
-         <p class="lead my-3">Միայն ձեռքի աշխատանք</p>
+         <h2 class="font-italic">{{__("mess.Կիրառական և դեկորատիվ կավե պարագաներ")}}</h2>
+         <p class="lead my-3">{{__("mess.Միայն ձեռքի աշխատանք")}}</p>
       </div>
    </div>
 </div>

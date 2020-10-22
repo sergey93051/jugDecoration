@@ -1,4 +1,6 @@
+
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark" id="nav__Bar">
+  <div class="showdown" style="background: rgb(255, 255, 255);opacity:0.0;"></div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,12 +17,12 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
         <div class="dropdown-item">
-          <a class="btn btn-light w-100" href="{{ url('/profile') }}">my profile</a>
+        <a class="btn btn-light w-100" href="{{ url('/profile') }}">{{__("mess.Պրոֆիլ")}}</a>
         </div>
         <div class="dropdown-item">
           <form action="{{ Route('logouts') }}" method="post">
             @csrf
-            <button type="submit" class="btn btn-danger w-100">logout</button>
+            <button type="submit" class="btn btn-danger w-100">{{__("mess.Դուրս գալ")}}</button>
           </form>
         </div>
       </div>
@@ -29,14 +31,15 @@
     @if (Request::path()=="/")
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <span type="button" class="navbar-brand singbut">{{__("mess.Sing up") }}</span>
+        <span type="button" class="navbar-brand singbut">{{__("mess.Գրանցվել") }}</span>
       </li>
       <li class="nav-item">
-        <span type="button" class="navbar-brand logbut">{{__("mess.Log in")}}</span>
+        <span type="button" class="navbar-brand logbut">{{__("mess.Մուտք գործեք")}}</span>
       </li>
     </ul>
     @endif
     @endif
+    @if (Request::path()=="/")
     <ul class="navbar-nav" id="lang">
       <li class="nav-item">
         <a class="navbar-brand" href="mess/arm">
@@ -49,19 +52,15 @@
         </a>
       </li>
     </ul>
+    @endif
     <div id="icons__nav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <img src="{{ asset('storage/phone/phone.png') }}" width="35px" height="auto">
-          <span>00099999999</span>
-        </li>
-        <li class="nav-item">
-          <img src="{{ asset('storage/phone/support.png') }}" width="35px" height="auto">
-          <span><a class="" href="#">support</a></span>
-        </li>
+     @if (Auth::guard("newuser")->check() && Request::path()=="/")
+     <li class="nav-item">
+      <img  class="mess__but" type="button" src="{{ asset('storage/phone/support.png') }}" width="35px" height="auto">
+    </li> 
+     @endif      
       </ul>
     </div>
-
   </div>
-
 </nav>

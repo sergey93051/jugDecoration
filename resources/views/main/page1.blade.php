@@ -1,5 +1,5 @@
 @extends('main.layouts.index')
-@section('page1','main')
+@section('page1','Jug')
 
 @section('header')
 @include('main.controlheader.mainheader')   
@@ -12,6 +12,7 @@
 {{-- @include('main.pageProduct.product') --}}
 @include('main.pageProduct.catepage')
 {{-- footer --}}
+
 @include('main.footer.footer')
 
 @endsection

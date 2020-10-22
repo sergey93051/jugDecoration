@@ -39490,7 +39490,57 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sentAjax", function() { return sentAjax; });
 function sentAjax() {
-  //Auth
+  $(".help__but").on("click", function () {
+    var file_data = $('.helpformGroup__file').prop('files')[0];
+    var texts = $(".helpformGroup__text").val();
+    var form_data = new FormData();
+    form_data.append('files', file_data);
+    form_data.append('texts', texts);
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: "/helpmess",
+      type: "POST",
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: form_data,
+      beforeSend: function beforeSend() {
+        // setting a timeout
+        $('.mail__load').css('display', "block");
+        $('.errormessange').css({
+          display: "none"
+        });
+      },
+      error: function error(data) {
+        if (data.status === 422) {
+          $('.errormessange>div>ul').html('');
+          var showError = '';
+          var errors = $.parseJSON(data.responseText);
+          $.each(errors['errors'], function (key, value) {
+            showError = $("<li>" + value + "</li>");
+            $('.errormessange>div>ul').append(showError);
+          });
+          $('.errormessange').css({
+            display: "block"
+          });
+          $('.mail__load').css('display', "none");
+        }
+      },
+      success: function success() {
+        $('.errormessange').css({
+          display: "none"
+        });
+        $('.mail__load').css('display', "none");
+        $(".success__alert").css('display', "block");
+        $(".help__but").attr("disabled", true);
+      }
+    });
+  }); //Auth
+
   $("#but__reg").on("click", function () {
     $.ajaxSetup({
       headers: {
@@ -39501,41 +39551,86 @@ function sentAjax() {
       url: "/register",
       type: "POST",
       cache: true,
+      beforeSend: function beforeSend() {
+        // setting a timeout
+        $('.mail__load').css('display', "block");
+        $('.errormessange').css({
+          display: "none"
+        });
+        $(".warning__foruser").css({
+          display: "none"
+        });
+      },
       data: {
         email: $("#exampleInput__Email1").val(),
         nameS: $("#exampleInput__nameSname").val(),
         phone: $("#exampleInput__phone").val(),
-        postcode: $("#exampleInput__postcode").val(),
         country: $("#exampleInput__country").val(),
         city: $("#exampleInput__city").val(),
+        street: $("#exampleInput__street").val(),
         password: $("#exampleInput__Password1").val()
       },
       //number rating
       error: function error(data) {
         if (data.status === 422) {
-          $('#errormessange>div>ul').html('');
+          $('.errormessange>div>ul').html('');
           var showError = '';
           var errors = $.parseJSON(data.responseText);
           $.each(errors['errors'], function (key, value) {
             showError = $("<li>" + value + "</li>");
-            $('#errormessange>div>ul').append(showError);
+            $('.errormessange>div>ul').append(showError);
           });
-          $('#errormessange').css({
+          $('.errormessange').css({
             display: "block"
           });
         }
+
+        $('.mail__load').css('display', "none");
+        $(".warning__foruser").css({
+          display: "none"
+        });
       },
       success: function success() {
+        $('.mail__load').css('display', "none");
+        $('.success-reg').css({
+          display: 'block'
+        });
+        $(".warning__foruser").css({
+          display: "none"
+        });
         $(".Regform__row").css({
           display: 'none'
         });
         $(".logform__row").css({
           display: 'block'
         });
-        $('#success__reg').css({
-          display: 'block'
+      }
+    });
+  }); //like
+
+  $(".like__but").click(function () {
+    var th = $(this);
+    var id = th.attr("id");
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: "/like/" + id,
+      type: "GET",
+      cache: false,
+      beforeSend: function beforeSend() {
+        th.find(".prod__load").css("display", 'inline-block');
+      },
+      error: function error(jqXHR, textStatus, errorTHrown) {
+        alert("error:please check your network");
+      },
+      success: function success(data) {
+        th.find("span").text(data);
+        th.find(".prod__load").css({
+          display: 'none'
         });
-        $('#success__reg').html($('<div class="alert alert-success" role="alert">' + 'success' + '</div>'));
       }
     });
   }); //prof
@@ -39549,13 +39644,13 @@ function sentAjax() {
     $.ajax({
       url: "profileChange",
       type: "GET",
-      cache: true,
+      cache: false,
       data: {
         nameS: $("#exampleInput__nameSnameP").val(),
         phone: $("#exampleInput__phoneP").val(),
-        postcode: $("#exampleInput__postcodeP").val(),
         country: $("#exampleInput__countryP").val(),
-        city: $("#exampleInput__cityP").val()
+        city: $("#exampleInput__cityP").val(),
+        street: $("#exampleInput__street").val()
       },
       //number rating
       error: function error(data) {
@@ -39594,6 +39689,13 @@ function sentAjax() {
       url: "authorization",
       type: "POST",
       cache: true,
+      beforeSend: function beforeSend() {
+        // setting a timeout
+        $('.mail__load').css('display', "block");
+        $('.logerrormessange').css({
+          display: "none"
+        });
+      },
       data: {
         email: $("#logexampleInput__Email1").val(),
         password: $("#logexampleInput__Password1").val()
@@ -39601,17 +39703,19 @@ function sentAjax() {
       //number rating
       error: function error(data) {
         if (data.status === 422) {
-          $('#logerrormessange>div>ul').html('');
+          $('.logerrormessange>div>ul').html('');
           var showError = '';
           var errors = $.parseJSON(data.responseText);
           $.each(errors['errors'], function (key, value) {
             showError = $("<li>" + value + "</li>");
-            $('#logerrormessange>div>ul').append(showError);
+            $('.logerrormessange>div>ul').append(showError);
           });
-          $('#logerrormessange').css({
+          $('.logerrormessange').css({
             display: "block"
           });
         }
+
+        $('.mail__load').css('display', "none");
       },
       success: function success() {
         window.location.reload();
@@ -39631,14 +39735,30 @@ function sentAjax() {
       url: "info/" + id,
       type: "GET",
       cache: false,
-      data: {
-        id: id
-      },
       error: function error(jqXHR, textStatus, errorTHrown) {
         alert("error:please check your network");
       },
       success: function success() {
         window.location.href = "info/" + id;
+      }
+    });
+  });
+  $(".but__prodinfo__fromprofile").on("click", function () {
+    var id = $(this).attr("id");
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: "products/info/" + id,
+      type: "GET",
+      cache: false,
+      error: function error(jqXHR, textStatus, errorTHrown) {
+        alert("error:please check your network");
+      },
+      success: function success() {
+        window.location.href = "products/info/" + id;
       }
     });
   });
@@ -39653,9 +39773,6 @@ function sentAjax() {
       type: "GET",
       url: "products/" + id,
       cache: false,
-      data: {
-        id: id
-      },
       error: function error(jqXHR, textStatus, errorTHrown) {
         alert("error:please check your network");
       },
@@ -39760,11 +39877,14 @@ __webpack_require__.r(__webpack_exports__);
 function index() {
   var main_reg = $(".Regform__row");
   var main_log = $(".logform__row");
-  var showdown = $(".showdown"); //show__order
+  var showdown = $(".showdown");
+  var successreg = $(".success-reg"); //show__order
 
-  var main_orders = $('.main__order'); //display:block;
+  var main_orders = $('.main__order'); //show__helpmess
 
-  $(".material-icons").click(function () {
+  var helpmess = $(".helpmailform__row"); //display:block;
+
+  $(".material-icons").on("click", function () {
     if (main_reg.css('display') === 'block') {
       main_reg.css({
         display: 'none'
@@ -39779,22 +39899,75 @@ function index() {
       });
     }
 
+    if (helpmess.css('display') === 'block') {
+      helpmess.css({
+        display: 'none'
+      });
+    }
+
     if (showdown.css('display') === 'block') {
       showdown.css({
         display: 'none'
       });
     }
-  });
-  $('.buyprod').click(function () {
-    main_orders.css({
-      display: "block"
-    });
 
-    if (showdown.css('display') == 'none') {
+    if ($('.errormessange').css("display") === "block") {
+      $('.errormessange').css({
+        display: "none"
+      });
+    }
+
+    if ($('.logerrormessange').css("display") === "block") {
+      $('.logerrormessange').css({
+        display: "none"
+      });
+    }
+
+    if (successreg.css('display') === 'block') {
+      successreg.css({
+        display: 'none'
+      });
+    }
+  });
+  $(".mess__but").click(function () {
+    if (showdown.css('display') === 'none') {
       showdown.css({
         display: 'block'
       });
     }
+
+    if (helpmess.css('display') === 'none') {
+      helpmess.css({
+        display: 'block'
+      });
+    }
+  });
+  $('.buyprod').click(function () {
+    var id = $(".orderId").val();
+
+    if (showdown.css('display') === 'none') {
+      showdown.css({
+        display: 'block'
+      });
+    }
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      type: "Post",
+      url: "/orders/id",
+      data: {
+        id: id
+      },
+      success: function success() {
+        main_orders.css({
+          display: "block"
+        });
+      }
+    });
   });
   $(".singbut").click(function () {
     main_reg.css({
@@ -39835,7 +40008,7 @@ function index() {
 function catem() {
   var cat_maintext = $(".cat__row__maintext");
   cat_maintext.attr("type", "submit");
-  $(".hov__show").hover(function () {
+  $(".hov__show").on('mouseenter', function () {
     $(this).find('.text__show').animate({
       height: "160px"
     }, 1000).css({
@@ -39843,23 +40016,23 @@ function catem() {
     }).children("p").animate({
       opacity: "1"
     }, 2100);
-  }, function () {
+  }).on('mouseleave', function () {
     $(this).find('.text__show').animate({
       height: "70px"
     }, 5).css({
       backgroundColor: "rgba(187, 187, 187, 0.6)"
-    }).children("p").animate({
+    }).children("p").css({
       opacity: "0"
-    }, 150);
+    });
   });
 }
 
 function product() {
-  $(".prod__card").hover(function () {
+  $(".card__prod").on('mouseenter', function () {
     $(this).css({
       border: "0.5px solid #808080"
     });
-  }, function () {
+  }).on('mouseleave', function () {
     $(this).css({
       border: "0.5px solid white"
     });
@@ -39868,6 +40041,57 @@ function product() {
   img.eq(1).attr("src", img.eq(0).attr("src"));
   img.on("click", function () {
     img.eq(0).attr("src", $(this).attr("src"));
+  }); //order
+
+  var add = $(".ordaddprod>*");
+  var pr = $(".orderpr").text();
+  var totorder = $(".totalord");
+  var total = 1;
+  var newprice = pr;
+  totorder.text(pr);
+  add.eq(2).click(function () {
+    total++;
+    add.eq(1).text(total);
+
+    if (total == 30) {
+      total = 0;
+    }
+
+    newprice = pr * total;
+    totorder.text(newprice);
+  });
+  add.eq(0).click(function () {
+    add.eq(1).text(total);
+
+    if (total > 1) {
+      total--;
+    } else {
+      total = 1;
+    }
+
+    newprice = pr * total;
+    totorder.text(newprice);
+  }); //orderfinish
+
+  var orderSent = $(".order__sent>*");
+  $(".ord__button__main>button").click(function () {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      type: "Post",
+      url: "/orders/full",
+      data: {
+        prod: orderSent.eq(1).text(),
+        price: orderSent.eq(2).text(),
+        total: orderSent.eq(4).text() + "=>" + orderSent.eq(3).text()
+      },
+      success: function success() {
+        $(".order__finish__success").css("display", "block");
+      }
+    });
   });
 }
 

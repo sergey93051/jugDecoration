@@ -1,0 +1,143 @@
+.row__productinfo{
+    display:flex;
+    justify-content: center;
+    margin-top:85px;
+    z-index: 0;
+   div{
+         background-color: rgb(255, 255, 255);
+         padding:4px;
+   }
+   .card__img{
+         width:30%;
+         height: auto;
+         padding: 5px;
+         
+   }
+   #card__body{
+         margin-left:3px;
+         padding:6px;
+   }
+   .buy__prod{
+         float: right;
+         margin-right:5px;
+         margin-top: 2%;
+       
+   }
+ 
+
+}
+//product
+.main__page__product{
+ .card{
+        display:inline-flex;
+        justify-content: flex-start;
+        width: 18rem;
+        margin-left:5px;
+        margin-top: 4px;
+        padding:4px;
+
+ .like__main{
+     img{
+           width: 40px;
+           height: auto;
+           margin-left: 5px;
+     }  
+ }
+
+  .title{
+        h5{
+         font-family:"impact";
+        font-size:30px;    
+        }
+  }
+  .but__prodinfo,.but__prodinfo__fromprofile{
+     width:100%;
+     min-height:240px;
+     max-height:241px;
+
+  }
+
+  .price{
+        strong{
+              font-family: "CORBEL";
+               font-size:30px;
+               color: rgb(248, 104, 52);
+               
+              }
+          span{
+                 margin-left: 4%; 
+              }
+  }
+  .author{
+       font-family: "GABRIOLA";
+          strong{
+              font-size:30px;
+          }
+          span{
+              margin-left: 4%;
+              font-size:25px;   
+          }
+      
+  }
+}//END
+}
+@include widmax591{
+  #main__page__product{
+        .card{
+              margin:auto 20%;
+
+        }
+  }
+}
+.row__profile{
+  display:flex;
+  justify-content: center;
+  margin-top:1%;
+  #profile{
+        width:60%;
+  }
+.card__menu{
+     margin:5% auto;
+  .card-body{
+        
+        input{
+              width: 60%;
+              border:1px solid;
+        } 
+   }
+
+}  
+}
+@include widmax575{
+  .row__profile{
+        .card__menu{
+        .card-body{            
+              input{
+                    width: 90%;                       
+              } 
+         }
+      }
+  }
+}
+.main__footer{
+position: relative;
+display: flex;
+justify-content: flex-start;
+margin-top:15px;
+width:auto;
+height:90px;
+background-color: rgb(42, 42, 42);
+padding: 25px;
+div{
+     img{
+          margin-left:7px;
+     }
+  strong{
+        padding:10px;
+        color: white;
+ }
+
+}
+
+
+}
