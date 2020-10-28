@@ -11,7 +11,7 @@ class MessController extends Controller
     public function showMessage()
     {
         $joinmess = DB::table('Helpmess')
-            ->select(DB::raw("count(Helpmess.id),Helpmess.*,users.email,users.nameS,users.phone,users.postcode,users.country,users.city"))
+            ->select(DB::raw("count(Helpmess.id),Helpmess.*,users.email,users.nameS,users.phone,users.street,users.country,users.city"))
             ->join("users", "Helpmess.user_id", "=", "users.id")
             ->groupBy("Helpmess.id", "users.id")
             ->get();

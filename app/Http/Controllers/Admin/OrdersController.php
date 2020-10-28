@@ -12,7 +12,7 @@ class OrdersController extends Controller
     public function neworders()
     {
         $joinorders = DB::table('orders')
-            ->select(DB::raw("count(orders.id),orders.*,users.email,users.nameS,users.phone,users.postcode,users.country,users.city"))
+            ->select(DB::raw("count(orders.id),orders.*,users.email,users.nameS,users.phone,users.street,users.country,users.city"))
             ->join("users", "orders.user_id", "=", "users.id")
             ->groupBy("orders.id", "users.id")
             ->get();

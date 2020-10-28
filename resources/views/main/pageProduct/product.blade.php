@@ -20,8 +20,8 @@
       <img id="{{ $item->id }}" type="button" src='{{ asset("storage/prodimg__{$item->directory}/".$item->img)}}'
         class="card-img-top but__prodinfo" >
       <div class="card-body title">
-        <h5 class="card-title">{{__("prolang.$item->title")}}</h5>
-        <p class="card-text price"><strong>{{__("mess.Գինը")}}</strong><span> ${{ $item->price }}<span></p>
+        <h5 class="card-title">{{__("pro.$item->title")}}</h5>
+        <p class="card-text price"><strong>{{__("mess.Գինը")}}</strong><span>AMD {{ $item->price }}<span></p>
         <p class="card-text like__main">
           <span type="button" @if(Auth::guard("newuser")->check())  class="like__but" id="{{ $item->id }}" @endif >
             <img src='{{ asset("storage/account/like.png")}}'>

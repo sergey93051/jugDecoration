@@ -32,7 +32,7 @@
                     <td>{{ $i->email }}</td>
                     <td>{{ $i->nameS }}</td>
                     <td>{{ $i->phone }}</td> 
-                    <td>{{ $i->postcode }}</td> 
+                    <td>{{ $i->street }}</td> 
                     <td>{{ $i->country }}</td>
                     <td>{{ $i->city }}</td>     
                     {{-- <td><input type="submit"  value="delete"></td>        --}}

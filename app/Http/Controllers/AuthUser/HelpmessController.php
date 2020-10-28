@@ -36,7 +36,7 @@ class HelpmessController extends Controller
         $this->user->User()->Helpmess()->save($save);
         Mail::to($this->user->User()->email)->send(new Helps());
         Mail::raw('new message in the Admin panel', function ($message) {
-            $message->to("sergey93051@mail.ru", 'Jug')->subject('Jug message');
+            $message->to("arm.aleqs.94@mail.ru", 'Jug')->subject('Jug message');
         });
     }
 }

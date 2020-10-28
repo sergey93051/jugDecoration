@@ -31,7 +31,7 @@
         </thead>
         <tbody>
           <tr class="order__table">
-            <td>{{__("prolang.$i->title")}}</td>
+            <td>{{__("pro.$i->title")}}</td>
             <td class="ordaddprod"><button>-</button><span>1</span><button>+</button></td>
             <td class="orderpr">{{$i->price}}</td>
             <td class="totalord"></td>
