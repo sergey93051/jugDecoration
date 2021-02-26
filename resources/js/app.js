@@ -1,26 +1,45 @@
-require('./bootstrap');
-import $ from 'jquery';
-window.$ = window.jQuery = $;
 
+require('./bootstrap');
+
+const Product = require('./product.js').default;
+const Orders = require("./order.js").default;
+const Mainpage = require("./index.js").default;
+const Profpage = require("./profile.js").default;
+import $, { css } from 'jquery';
+window.$ = window.jQuery = $;
 import 'jquery-ui/ui/widgets/datepicker.js';
 
-import { index, catem, product } from './index.js';
-import { sentAjax } from './ajax.js';
 //mainpage page1   (/)
+// prodItem.product()
+const profile = new Profpage();
+profile.profpageAjax();
 
-(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+const mainpages = new Mainpage();
+mainpages.index();
+mainpages.shopcardnav();
+mainpages.cookiefunction();
+mainpages.catePage();
+mainpages.catePageAjax();
+mainpages.lang();
+mainpages.authAjax();
+const products = new Product();
+products.prodItem();
+products.productItemAjax();
+products.productinfo();
+products.productinfoAjax();
+products.likeProduct();
+products.cartsentorder();
+const orders = new Orders();
+orders.ordersAjax();
+orders.ordersAjaxtoreg();
+orders.ordersAjaxtolog();
+
+// if ($(".main__footer").css("bottom") >= "1") {
+//     $(".main__footer").css("bottom", "0px");
+// }
 
 
-catem();
-index();
-sentAjax();
-product();
+
 
 
 

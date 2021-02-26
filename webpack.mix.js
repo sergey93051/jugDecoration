@@ -14,8 +14,12 @@ if (mix.inProduction()) {
     mix.version();
 }
 mix.js('resources/js/app.js', 'public/js').version();
-mix.sass('resources/sass/app.scss', 'public/css');
-    
-    
-    
-    
+mix.sass('resources/sass/app.scss', 'public/css').options({
+    processCssUrls: false
+});
+mix.postCss('resources/sass/app.scss', 'public/src/app.css', [
+    require('autoprefixer')({
+        browsers: ['last 40 versions'],
+        flex: true
+    })
+])

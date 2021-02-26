@@ -1,14 +1,14 @@
 <div class="container-fluid">
    <div class="row" id="main__headCont">
-      <div class="col-sm jug__mainfoto">
-         <img src="{{ asset("storage/mainimg/jugmain.jpg") }}" alt="">
+      <div class="col-md jug__mainfoto">
+         <img src="{{ asset("storage/mainImg/jugMain.jpg")}}" >
         <div class="alert alert-light jug__ptext" role="alert">
         <img src="{{asset('storage/tokos/5toc.png')}}">
          <span>{{__("mess.յուրաքանչյուր գնումից նվիրաբերում ենք բարեգործությանը")}}</span>
       </div>
       </div>
-      <div class="col-sm" id="videoKav1">
-         <video controls preload="none" controlsList="nodownload">
+      <div class="col-md" id="videoKav1">
+          <video controls autoplay preload="none" controlsList="nodownload" width="100%" height="400px"
             <source src="{{ asset("video/kav1.mp4") }}" type="video/mp4">
             <source src="{{ asset("video/kav1.ogg") }}" type="video/ogg">
          </video>

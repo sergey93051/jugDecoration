@@ -1,5 +1,10 @@
 <?php
 return [
+    "Նոր տեսականի" => "New assortment",
+    "ջնջել" => "delete",
+    "դիտել" => "watch",
+    "Ավելացնել" => "add to cart",
+    "Գնումների զամբյուղ" => "Shopping Cart",
     "Ձեր հավանածնները" => "Your favorites",
     "Շնորհակալություն" => "Thanks",
     "Դուք հաջողությամբ գրանցվել եք" => "You have successfully registered",
@@ -23,7 +28,7 @@ return [
     "Գինը" => "Price",
     "Հեղինակ" => "Author",
     "Գնել հիմա" => "Buy now",
-    "Գրանցվեք գնումններ կատարելու համար" => "Sign up for shopping",
+    "Գրանցվեք կամ մուտք գործեք ձեր հաշիվ գնումններ կատարելու համար" => "Sign up or sign in to your account for shopping",
     "Շնորակալություն գնումների համար" => "Thank you for your purchase",
     "Ընտրել ձեռք բերման տարբերակը" => "Choose the purchase option",
     "Կանխիկ" => "Cash",
@@ -35,10 +40,12 @@ return [
     "քանակ" => "Quantity",
     "ընտամենը" => "total",
     "Ձեր գնումը" => "Your purchase",
-    "Հաստատել" => "Confirm"
-
-
-
+    "Հաստատել" => "Confirm",
+    "Գրանցվեք գնահատելու համար" => "to register for the assessment",
+    "մուտք գործեք ձեր հաշիվ բովանդակությունը տեսնելու համար" => "Sign in to see the content of your account",
+    "Պատվերը պատրաստ է լինում 15-30 օրվա ընթացքում" => "The order is ready in 15-30 days",
+    "Մուտք գործեք գնահատման համար" => "Sign in  for the assessment",
+    "ձեր առաքման հասցեն" => "your shipping address"
 
 
 ];

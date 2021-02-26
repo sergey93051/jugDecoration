@@ -1,10 +1,17 @@
+@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+* {
+    box-sizing: border-box; 
+}
 //fond
 
 // Variables
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+
 
 // style
 @import  'homeSass/control.scss';

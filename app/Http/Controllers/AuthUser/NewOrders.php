@@ -4,9 +4,10 @@ namespace App\Http\Controllers\AuthUser;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Mail\orderinfo;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+use App\Mail\Orderinfo;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -16,24 +17,21 @@ class NewOrders extends Controller
 
     public function __construct()
     {
-
         $this->user = Auth::Guard('newuser');
     }
-
-    public function showid(Request $r)
+    public function  vieworderpage()
     {
-        if (Session::has('orderId')) {
-            Session::forget('orderId');
-        }
-        Session::put('orderId', $r->input('id'));
+        return view("main.neworder.neworder");
     }
-
-    public function showorder()
+    public function showorder(Request $request)
     {
-
-        $orderinfo = $this->user->User()->Productimgs()->select(["id", 'title', "price"])->where("id", Session::get("orderId"))->get();
-
-        return view("main.neworder.neworder", compact("orderinfo"));
+        $data = [
+            "itemNameProd" => $request->input("itemNameProd"),
+            "totalPrace" => $request->input("totalPrace"),
+            "totalcash" => $request->input("totalcash")
+        ];
+        Session::put('orderproduct', $data);
+        return redirect('/order');
     }
 
     public function orderFull(Request $r)
@@ -45,9 +43,9 @@ class NewOrders extends Controller
             "total" => $r->input('total')
         ];
 
-
+        //arm.aleqs.94@mail.ru
         $create = $this->user->User()->Orders()->create($orders);
         $this->user->User()->Orders()->save($create);
-        Mail::to("arm.aleqs.94@mail.ru")->send(new orderinfo($orders));
+        Mail::to("sergey93051@mail.ru")->send(new Orderinfo($orders));
     }
 }

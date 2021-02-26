@@ -23,12 +23,13 @@ class ProfileRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+         return [
             'nameS' => 'required|string|min:2|max:20',
-            'phone' =>   'required|digits_between:8,20|numeric',
-            'postcode' => 'required|digits_between:3,10|numeric',
-            'country' => 'required|string|max:20|min:2',
-            "city" => 'required|string|max:20|min:2'
+            'phone' =>   'required|min:8|max:20',
+            'country' => 'nullable|string|max:20|min:2',
+            "city" => 'nullable|string|max:20|min:2',
+            'street' => 'nullable|string|min:3|max:50',
+
         ];
     }
 }

@@ -15,6 +15,6 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller{
 
     public function adminshow(){
-            return view("Admin.layouts.index");
+            return view("admin.layouts.index");
     }
 }

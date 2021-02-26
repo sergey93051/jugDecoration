@@ -3,14 +3,20 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', "AuthUser\MainPageShow@mainshow");
-Route::get('/mess/{locale}', 'AuthUser\MainPageShow@local_lang');
+Route::any('/mess', 'AuthUser\MainPageShow@local_lang');
 
 Route::any("/helpmess", "AuthUser\HelpmessController@helpmess");
 
-Route::get("/orders", "AuthUser\NewOrders@showorder");
-Route::any("/orders/full", "AuthUser\NewOrders@orderFull");
+Route::get("/mycard", "AuthUser\addCardController@mycardsShow")->name('mycardshow');
+Route::any("/mycard/data", "AuthUser\addCardController@mycards");
+Route::any("/mycard/delete/{id}", "AuthUser\addCardController@mycartdel")->name('mycartdel');
 
-Route::post("/orders/id", "AuthUser\NewOrders@showid");
+
+Route::get("/order", "AuthUser\NewOrders@vieworderpage")->name("ordersView");
+
+Route::any("/order/data", "AuthUser\NewOrders@showorder");
+
+Route::any("/orders/full", "AuthUser\NewOrders@orderFull");
 
 
 Route::get("/products/info/{id}", "AuthUser\ProdinfoController@prodinfo")->name('prodinfo');
@@ -22,6 +28,8 @@ Route::get("/products/{id}", "AuthUser\ProductController@productMain");
 Route::any("/register", "AuthUser\AuthRegController@register")->name("register");
 Route::any("/authorization", "AuthUser\AuthLogController@authorization")->name("authorization");
 Route::post("/logouts", "AuthUser\AuthLogController@logouts")->name('logouts');
+
+Route::any("/favorite", "AuthUser\FavoriteController@favorite");
 
 
 

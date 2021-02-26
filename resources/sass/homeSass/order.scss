@@ -1,7 +1,7 @@
 .main__order{
     position: fixed;
     background-color: rgba(219, 219, 219, 0.877);
-    margin-top:110px;
+    top:95px;
     left: 15%;     
     width:70%;
     height: auto;
@@ -14,7 +14,7 @@
     .orders{
           margin-top:10px;
           padding: 20px;
-          a{
+          p{
                 margin:5%;
                 padding:25px;
                 font-size: 20px;
@@ -32,7 +32,7 @@
           left: 9%;  
    
     .orders{
-            a{
+            p{
                 padding:15px;
                 font-size: 20px;
           }
@@ -42,74 +42,28 @@
 @include widmax794{
     .main__order{
     .orders{
-         a{
+         p{
           padding:8px;
           font-size: 15px;
           }
     }
 }
 }
-//
-.order__finish{
-     display:flex;
-     justify-content: center;
-     margin-top:85px;
-     padding:10px;
-     h2{
-           text-align: center;
-     }
-     .ordaddprod{
-           span{
-                 margin:3px;
-                 padding: 2px;
-           }
-     }
-     .ord__button__main{
-           margin-left:5%;
-     }
-
-        //   .order__table{
-        //           .ordaddprod{
-        //             button:first-child{
-        //                float: left;
-        //                margin-left:4px;
-        //             }
-        //             span{
-        //                 float: left;
-        //                 margin-left:4px; 
-        //             }
-        //             button:last-child{
-        //                float: left;
-        //                margin-left:4px;
-        //             }
-                     
-        //           }
-
-        //   }
 
 
-}
 
-@include widmax575{
-    .table-bordered{
-        tr{
-            position: relative;
-            th{             
-             
-                font-size: 10px;
-               
-            }
-        }
-    }
-    .order__table{
-        position: relative;
-        td{
-           
-            font-size: 10px;
-        }
-    }
-}
 .order__finish__success{
-     display:none;
-     margin-top: 5%;
+      display: none;
+  }
+  .order__finish{
+  margin-top: 80px;
+margin-bottom: 100px;
+  
+  .ord__button__main{
+      button{
+            background: coral;
+            color:white;
+      }
+  }
+
 }

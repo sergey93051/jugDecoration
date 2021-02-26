@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class orderinfo extends Mailable
+class Orderinfo extends Mailable
 {
     use Queueable, SerializesModels;
     public $newmess;
@@ -31,10 +31,8 @@ class orderinfo extends Mailable
         return $this->markdown('emails.orders.orderbuyinfo')
             ->with([
                 "prod" => $this->newmess['prod'],
-                "after" => $this->newmess['after'],
                 "price" => $this->newmess['price'],
                 "total" => $this->newmess['total']
-
             ]);
     }
 }

@@ -4,16 +4,19 @@
 @section('header')
 @include('main.controlheader.mainheader')   
 @endsection
+@section('fcmess')
+@include('main.messfc.messlink')
+@endsection
 
 @section('containerMain')
 {{-- header --}}
 
 {{-- content --}}
-{{-- @include('main.pageProduct.product') --}}
 @include('main.pageProduct.catepage')
-{{-- footer --}}
-
-@include('main.footer.footer')
 
 @endsection
 
+{{-- footer --}}
+@section('footer')
+@include('main.footer.footer')  
+@endsection

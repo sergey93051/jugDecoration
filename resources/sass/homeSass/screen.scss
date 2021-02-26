@@ -1,15 +1,41 @@
+@mixin widmax1297{
+    @media  (max-width:1297px){
+        @content;
+    }
+}
+@mixin widmax1306{
+    @media  (max-width:1306px){
+        @content;
+    }
+}
+@mixin widmax966{
+    @media  (max-width:966px){
+        @content;
+    }
+}
+@mixin widmax900{
+    @media  (max-width:900px){
+        @content;
+    }
+}
 @mixin widmax794{
     @media  (max-width:794px){
         @content;
     }
 }
 @mixin  widmax768{
-    @media  (max-width:768px){
+    @media  (max-width:767px){
         @content;
     }
 }
-@mixin widmax900{
-    @media  (max-width:900px){
+
+@mixin widmax642{
+    @media  (max-width:642px){
+        @content;
+    }
+}
+@mixin widmax629{
+    @media  (max-width:629px){
         @content;
     }
 }

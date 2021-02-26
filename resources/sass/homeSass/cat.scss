@@ -54,6 +54,23 @@
      }
 
 } 
+@include widmax768{
+      .main__cate {
+            .div1{
+                  img{
+                       height:450px; 
+                    }
+                }
+           .div2,.div3,.divelse{
+                  
+                  img{
+                        width: 100%;
+                       height:400px; 
+                    }
+                }
+   
+      }
+   }
 @include widmax575{
      .main__cate {
            .div1,.div2,.div3,.divelse{

@@ -27,9 +27,9 @@ class RegistrRequest extends FormRequest
             'email' => 'required|unique:users|email',
             'nameS' => 'required|string|min:2|max:20',
             'phone' =>   'required|min:8|max:20',
-            'country' => 'required|string|max:20|min:2',
-            "city" => 'required|string|max:20|min:2',
-            'street' => 'string|min:3|max:20',
+            'country' => 'nullable|string|max:20|min:2',
+            "city" => 'nullable|string|max:20|min:2',
+            'street' => 'nullable|string|min:3|max:50',
             'password' => 'required|min:8|max:30'
 
         ];

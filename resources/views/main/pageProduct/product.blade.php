@@ -1,40 +1,52 @@
 @extends('main.layouts.index')
-@section('page1','Product')
-
+@section('page1',"product")
 @section('header')
-@include('main.header.nav')
+@include("main.header.nav")
 @endsection
-
 @section('containerMain')
-<div class="main__page__product">
-  @if($Catjoinprod->isEmpty())
-  <div class="container" style="margin-top:10%">
-    <div class="alert alert-secondary" role="alert">
-      Empty
-    </div>
-  </div> 
-  @else
-  @foreach ($Catjoinprod as $item)
-  <div class="card mb-5 card__prod">
-    <div>
-      <img id="{{ $item->id }}" type="button" src='{{ asset("storage/prodimg__{$item->directory}/".$item->img)}}'
-        class="card-img-top but__prodinfo" >
-      <div class="card-body title">
-        <h5 class="card-title">{{__("pro.$item->title")}}</h5>
-        <p class="card-text price"><strong>{{__("mess.Գինը")}}</strong><span>AMD {{ $item->price }}<span></p>
-        <p class="card-text like__main">
-          <span type="button" @if(Auth::guard("newuser")->check())  class="like__but" id="{{ $item->id }}" @endif >
-            <img src='{{ asset("storage/account/like.png")}}'>
-            <span>{{ $item->tottle }}</span>
-            <span class="spinner-border text-dark prod__load" role="status" style="display:none;">
-              <span class="sr-only">Loading...</span>
+@if($Catjoinprod->isEmpty())
+<div class="container" style="margin-top:10%">
+  <div class="alert alert-secondary" role="alert">
+    Empty
+  </div>
+</div>
+@else
+<div class="container-fluid">
+  <div class="rowcontrolprod">
+    <div class="row productItemMain">
+      @foreach ($Catjoinprod as $item)
+      <div class="card">
+        <img class="prodImgItem" id="{{ $item->id }}" type="button"
+          src='{{ asset("storage/prodImg{$item->directory}/$item->img")}}'>
+        <div class="card-body">
+          <h5 class="card-title headerItem">{{__("pro.$item->title")}}</h5>
+          <p class="card-text priceItem">
+            <strong>{{__("mess.Գինը")}}</strong><span>AMD{{ $item->price }}<span>
+          </p>
+          <p class="card-text likeItem">
+            <span id="{{ $item->id }}" type="button" @if(Auth::guard("newuser")->check()) class="likeButTrue" @else
+              class="likeButFalseprod" @endif>
+              <img src='{{ asset("storage/account/like.png")}}'>
+              <span>
+                {{ $item->tottle }}
+              </span>
             </span>
-          </span>
-        </p>
+            @include("main.alert.loadSpinner")
+          </p>
+          <p class="card-text likealertprod">
+            @if(!Auth::guard("newuser")->check())
+            {{__("mess.Մուտք գործեք գնահատման համար")}}
+            @endif
+          </p>
+        </div>
       </div>
+      @endforeach
     </div>
   </div>
-  @endforeach
-  @endif
 </div>
+@endif
+@endsection
+{{-- footer --}}
+@section('footer')
+@include('main.footer.footer')
 @endsection
