@@ -14,12 +14,14 @@ class addCardController extends Controller
 
     public function mycardsShow()
     {
-
         $cartarray = isset($_COOKIE["shopp"]) ? [json_decode($_COOKIE["shopp"])] : "[]";
         return view("main.mycard.mycardshop", compact("cartarray"));
     }
+
     public function mycards(Request $r)
     {
+
+
         if (!empty($r->input("ids"))) {
             Cookiec::Cardshop(
                 $r->input("ids"),

@@ -13,7 +13,7 @@ class CookcardProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton("Cookiec", "App\CookCard\Cardshop");
+        $this->app->bind("Cookiec", "App\CookCard\Cardshop");
     }
 
     /**
